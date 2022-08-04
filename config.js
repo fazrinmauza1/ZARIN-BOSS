@@ -21,7 +21,7 @@ global.APIKeys = {
 
 //═══════[modification]════════\\
 global.apilol = 'fleyvin_soft' //YOUR APIKEY LolHuman
-global.owner = ['6283110011351','6283110011351'] //owner number, u can put multiple owner number, within quotations and seperated by comma.
+global.owner = ['6283110011351','6285230122985'] //owner number, u can put multiple owner number, within quotations and seperated by comma.
 global.pemilik = ['6283110011351'] //another owner number
 global.premium = ['6283110011351'] //premium number
 global.pengguna = 'xZrinva' //username
