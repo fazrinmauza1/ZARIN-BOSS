@@ -650,14 +650,14 @@ In ${clockString(new Date - user.afkTime)}
         }
 	    
         switch(command) {
-	    case '12345afk': {
+	    case 'afk': {
                 let user = global.db.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
                 reply(`${m.pushName} Already Afk${text ? ': ' + text : ''}`)
             }
             break	
-        case '12345ttc': case '12345ttt': case '12345tictactoe': {
+        case 'ttc': case 'ttt': case 'tictactoe': {
             let TicTacToe = require("./lib/tictactoe")
             this.game = this.game ? this.game : {}
             if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) throw 'You are still in the game'
@@ -707,7 +707,7 @@ Type *give up* to surrender and admit defeat`
             }
             }
             break
-            case '12345delttc': case '12345delttt': {
+            case 'delttc': case 'delttt': {
             this.game = this.game ? this.game : {}
             try {
             if (this.game) {
@@ -721,7 +721,7 @@ Type *give up* to surrender and admit defeat`
             }
             }
             break
-            case '12345suitpvp': case '12345suit': {
+            case 'suitpvp': case 'suit': {
             this.suit = this.suit ? this.suit : {}
             let poin = 10
             let poin_lose = 10
@@ -750,7 +750,7 @@ Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
             }
             break
 	    
-case '12345donasi': case '12345donate': {
+case 'donasi': case 'donate': {
 	don = fs.readFileSync('./BotMedia/donasi.jpg')
 let buttons = [
                     {buttonId: `${prefix}owner`, buttonText: {displayText: '👤OWNER BOT👤'}, type: 1}
@@ -765,7 +765,7 @@ let buttons = [
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
        }
           break
-case '12345sewa': case '12345sewabot': case '12345botsewa': {
+case 'sewa': case 'sewabot': case 'botsewa': {
 	don = fs.readFileSync('./BotMedia/sewa.jpg')
 let buttons = [
                     {buttonId: `${prefix}owner`, buttonText: {displayText: '👤OWNER BOT👤'}, type: 1}
@@ -780,12 +780,12 @@ let buttons = [
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
        }
           break
-case '12345sc': case '12345script': case '12345scbot': case '12345scriptbot': 
+case 'sc': case 'script': case 'scbot': case 'scriptbot': 
 reply(global.script)
           break
             
             
-case '12345chat404': case '12345cet404': {
+case 'chat404': case 'cet404': {
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
                     title: `Hai ${pushname}`,
@@ -840,7 +840,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-            case '12345404setchat': {
+            case '404setchat': {
                // if (!isCreator) throw mess.owner
                 if (!q) throw 'Option : 1. mute\n2. unmute\n3. archive\n4. unarchive\n5. read\n6. unread\n7. delete'
                 if (args[0] === 'mute') {
@@ -860,7 +860,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 }
             }
             break
-	    case '12345family100hdiejebdjdijdjdjdj': { //this is in indonesian so if u want to activate u can but will be in indonesian
+	    case 'family100hdiejebdjdijdjdjdj': { //this is in indonesian so if u want to activate u can but will be in indonesian
                 if ('family100'+m.chat in _family100) {
                     reply('There are still unfinished sessions!')
                     throw false
@@ -877,13 +877,13 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 }
             }
             break
-            case '12345halah': case '12345hilih': case '12345heleh': case '12345huluh': case '12345holoh': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
+            case 'halah': case 'hilih': case 'heleh': case 'huluh': case 'holoh': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
             if (!m.quoted && !text) throw `Send/reply text with caption ${prefix + command}`
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
             reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             break
-case '12345todi': case '12345hilihdkksls': case '12345huluhkdksls': case '12345helehkdkdkd': case '12345holohkdkskks': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
+case 'todi': case 'hilihdkksls': case 'huluhkdksls': case 'helehkdkdkd': case 'holohkdkskks': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
             if (!m.quoted && !text) throw `Send/reply text with caption ${prefix + command}`
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
@@ -897,7 +897,7 @@ ${tex}
 Pajrin.sendMessage(m.chat, { text: teksnya, contextInfo: { mentionedJid: [users] }}, { quoted: m})
 
             break
-            case '12345tebak': { //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
+            case 'tebak': { //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
                 if (!text) {
                 	let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
@@ -1036,7 +1036,7 @@ Pajrin.sendMessage(m.chat, { text: teksnya, contextInfo: { mentionedJid: [users]
                 }
             }
             break
-            case '12345mathquiz': case '12345math': {
+            case 'mathquiz': case 'math': {
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "There are still unfinished sessions!"
                 let { genMath, modes } = require('./src/math')
                 if (!text) {
@@ -1105,7 +1105,7 @@ Pajrin.sendMessage(m.chat, { text: teksnya, contextInfo: { mentionedJid: [users]
                 }
             }
             break
-            case '12345mysoulmate': case '12345pasanganku': {
+            case 'mysoulmate': case 'pasanganku': {
             if (!m.isGroup) throw mess.group
             let member = participants.map(u => u.id)
             let me = m.sender
@@ -1120,7 +1120,7 @@ Pajrin.sendMessage(m.chat, { text: teksnya, contextInfo: { mentionedJid: [users]
                     await Pajrin.sendButtonText(m.chat, buttons, jawab,  `${global.fake}`, m, {mentions: ments})
             }
             break
-            case '12345couple': {
+            case 'couple': {
             if (!m.isGroup) throw mess.group
             let member = participants.map(u => u.id)
             let orang = member[Math.floor(Math.random() * member.length)]
@@ -1134,7 +1134,7 @@ Ciee Whats Going On💖👀`
                     await Pajrin.sendButtonText(m.chat, buttons, jawab,  `${global.fake}`, m, {mentions: menst})
             }
             break
-            case '12345join': {
+            case 'join': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw 'Enter the group link!'
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
@@ -1143,12 +1143,12 @@ Ciee Whats Going On💖👀`
                 await Pajrin.groupAcceptInvite(result).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
             break
-            case '12345leave': case '12345out': {
+            case 'leave': case 'out': {
                 if (!isCreator) throw mess.owner
                 await Pajrin.groupLeave(m.chat).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
             break
-	case '12345kick': {
+	case 'kick': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1156,7 +1156,7 @@ Ciee Whats Going On💖👀`
 		await Pajrin.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case '12345add': {
+	case 'add': {
 		if (!text && !m.quoted) throw `*Mana nomor nya?*\n_Contoh:_ ${prefix + command} ${global.pemilik}`
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
@@ -1165,7 +1165,7 @@ Ciee Whats Going On💖👀`
 		await Pajrin.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-case '12345adduser': {
+case 'adduser': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
               //  if (!isAdmins) throw mess.admin
@@ -1173,7 +1173,7 @@ case '12345adduser': {
 		await Pajrin.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case '12345promote': {
+	case 'promote': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1181,7 +1181,7 @@ case '12345adduser': {
 		await Pajrin.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case '12345demote': {
+	case 'demote': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1189,7 +1189,7 @@ case '12345adduser': {
 		await Pajrin.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-        case '12345block': {
+        case 'block': {
 		if (!isCreator) throw mess.owner
 		if (!text && !m.quoted) throw `*Mana nomor yang mau di blockir?*\n_Contoh:_ ${prefix + command} ${global.pemilik}`
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
@@ -1198,7 +1198,7 @@ await Pajrin.updateBlockStatus(users, 'block') //.then((res) => reply(jsonformat
 	
 }
 	break
-        case '12345unblock': {
+        case 'unblock': {
 		if (!isCreator) throw mess.owner
 		if (!text && !m.quoted) throw `*Mana nomor yang mau di Unblockir?*\n_Contoh:_ ${prefix + command} ${global.pemilik}`
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
@@ -1206,7 +1206,7 @@ reply(mess.success)
 		await Pajrin.updateBlockStatus(users, 'unblock') // .then((res) => reply(mess.done)).catch((err) => reply(mess.done))
 	
 }
-case '12345unblockuser': {
+case 'unblockuser': {
 		if (!isCreator) throw mess.owner
 		//if (!text && !m.quoted) throw `*Mana nomor yang mau di Unblockir?*\n_Contoh:_ ${prefix + command} ${global.pemilik}`
 //let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
@@ -1215,7 +1215,7 @@ reply(mess.success)
 	Pajrin.sendMessage(`${text}`, { text: `Owner telah membuka blokir Anda dari BOT,gunakan bot dengan wajar dan jangan melakukan pelanggan terhadap peraturan pengguna`}, { quoted: m})
 }
 	break
-	    case '12345setname': case '12345setsubject': {
+	    case 'setname': case 'setsubject': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1223,7 +1223,7 @@ reply(mess.success)
                 await Pajrin.groupUpdateSubject(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
             }
             break
-          case '12345setdesc': case '12345setdesk': {
+          case 'setdesc': case 'setdesk': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1231,7 +1231,7 @@ reply(mess.success)
                 await Pajrin.groupUpdateDescription(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
             }
             break
-          case '12345setppbot': case '12345setbotpp': {
+          case 'setppbot': case 'setbotpp': {
                 if (!isCreator) throw mess.owner
                 if (!quoted) throw `Send/Reply Image Dengan Caption ${prefix + command}`
                 if (!/image/.test(mime)) throw `Send/Reply Image Dengan Caption ${prefix + command}`
@@ -1241,7 +1241,7 @@ reply(mess.success)
                 reply(mess.success)
                 }
                 break
-           case '12345setppgroup': case '12345setgrouppp': case '12345setgcpp': case '12345setppgrup': case '12345setppgc': {
+           case 'setppgroup': case 'setgrouppp': case 'setgcpp': case 'setppgrup': case 'setppgc': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1253,7 +1253,7 @@ reply(mess.success)
                 reply(mess.success)
                 }
                 break
-case '12345grupinfo': case '12345groupinfo':
+case 'grupinfo': case 'groupinfo':
 try{
  var pic = await Pajrin.getProfilePicture(m.chat)
   } catch {
@@ -1263,7 +1263,7 @@ let ingfo = `*G R O U P  I N F O*\n\n*Name :* ${groupName}\n*ID Group :* ${m.cha
 ds = await getBuffer(pic)
 Pajrin.sendMessage(m.chat, { image: ds,caption: ingfo, mentions: [groupMetadata.owner] }, { quoted: m})
 break
-            case '12345tagall': case '12345tag': {
+            case 'tagall': case 'tag': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1276,14 +1276,14 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 Pajrin.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
                 }
                 break
-                case '12345hidetag': {
+                case 'hidetag': {
             if (!m.isGroup) throw mess.group
             
             Pajrin.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)})
             }
             break
 
-	    case '12345style': case '12345styletext': {
+	    case 'style': case 'styletext': {
 	      //  if (!isPremium && global.db.users[m.sender].limit < 1) return reply(mess.endLimit) // response when limit runs out
 		//db.users[m.sender].limit -= 1 // -1 limit
 		let { styletext } = require('./lib/scraper')
@@ -1296,7 +1296,7 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 reply(teks)
 	    }
 	    break
-               case '12345voting': case '12345vote': {
+               case 'voting': case 'vote': {
             if (!m.isGroup) throw mess.group
             if (m.chat in vote) throw `_Vote masih berlangsung di group ini !_\n\n*${prefix}deletevote* - untuk menghapus vote`
             if (!text) throw `*Apa yang mau di vote?*\n_Contoh:_ ${prefix + command} ${global.pengguna} maju jadi presiden Indonesia`
@@ -1338,7 +1338,7 @@ let buttonsVote = [
             Pajrin.sendMessage(m.chat, buttonMessageVote)
 	    }
             break
-               case '12345upvote': {
+               case 'upvote': {
             if (!m.isGroup) throw mess.group
             if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*Type ${prefix}vote* - untuk memulai voting`
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
@@ -1380,7 +1380,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
             Pajrin.sendMessage(m.chat, buttonMessageUpvote)
 	    }
              break
-                case '12345devote': {
+                case 'devote': {
             if (!m.isGroup) throw mess.group
             if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*${prefix}vote* - untuk memulai voting`
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
@@ -1423,7 +1423,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 	}
             break
                  
-case '12345cekvote':
+case 'cekvote':
 if (!m.isGroup) throw mess.group
 if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*${prefix}vote* - untuk memulai voting`
 teks_vote = `*「 VOTE 」*
@@ -1451,14 +1451,14 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 `
 Pajrin.sendTextWithMentions(m.chat, teks_vote, m)
 break
-		case '12345deletevote': case '12345delvote': case '12345hapusvote': {
+		case 'deletevote': case 'delvote': case 'hapusvote': {
             if (!m.isGroup) throw mess.group
             if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai voting`
             delete vote[m.chat]
             reply('Successfully Deleted Vote Session In This Group')
 	    }
             break
-case '12345groupsystem': case '12345groupsetting': case '12345groupset': {
+case 'groupsystem': case 'groupsetting': case 'groupset': {
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
                     title: `Hai ${pushname}`,
@@ -1538,7 +1538,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-               case '12345groupopen': case '12345grupopen': {
+               case 'groupopen': case 'grupopen': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1556,7 +1556,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
              }
             }
             break
-            case '12345editinfo': {
+            case 'editinfo': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1574,7 +1574,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             }
             }
             break
-case '12345antilink':
+case 'antilink':
 	        if (!m.isGroup) return reply(`This feature only be used in group`)
 			if (!isAdmins) return reply(`This feature could be used by admin only`)
 			if (!isBotAdmins) return reply(`Bot must be admin first`)
@@ -1604,7 +1604,7 @@ case '12345antilink':
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
 					break 
-					case '12345antiwame':
+					case 'antiwame':
 	        if (!m.isGroup) return reply(`This feature only be used in group`)
 			if (!isAdmins) return reply(`This feature could be used by admin only`)
 			if (!isBotAdmins) return reply(`Bot must be admin first`)
@@ -1634,7 +1634,7 @@ case '12345antilink':
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
 					break 
-					case '12345antivirtex':
+					case 'antivirtex':
 	        if (!m.isGroup) return reply(`This feature only be used in group`)
 			if (!isAdmins) return reply(`This feature could be used by admin only`)
 			if (!isBotAdmins) return reply(`Bot must be admin first`)
@@ -1665,7 +1665,7 @@ case '12345antilink':
             }
 					break 
 					
-					   case '12345mute': {
+					   case 'mute': {
                 if (!m.isGroup) throw mess.group
                 if (!isAdmins) throw mess.admin
                 if (args[0] === "on") {
@@ -1685,14 +1685,14 @@ case '12345antilink':
                 }
              }
              break
-            case '12345linkgroup': case '12345grouplink': case '12345gclink': case '12345linkgc': {            
+            case 'linkgroup': case 'grouplink': case 'gclink': case 'linkgc': {            
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) return reply(`Bot must be admin first`)
                 let response = await Pajrin.groupInviteCode(m.chat)
                 Pajrin.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nLink of: ${groupMetadata.subject} Group`, m, { detectLink: true })
             }
             break
-            case '12345ephemeral': {
+            case 'ephemeral': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1704,7 +1704,7 @@ case '12345antilink':
                 }
             }
             break
-            case '12345delete': case '12345del': {
+            case 'delete': case 'del': {
                 if (!m.quoted) throw false
                 let { chat, fromMe, id, isBaileys } = m.quoted
                 if (!isBaileys) throw 'The message was not sent by a bot!'
@@ -1714,7 +1714,7 @@ case '12345antilink':
             
             break
 
-            case '12345bcgc': case '12345bcgroup': {
+            case 'bcgc': case 'bcgroup': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw `*Mana teks nya?*\n\_Contoh:_ ${prefix + command} Hello guys im WhatsApp bot in here`
                 let getGroups = await Pajrin.groupFetchAllParticipating()
@@ -1756,7 +1756,7 @@ case '12345antilink':
                 reply(`Successful Sending Broadcast To ${anu.length} Group(s)`)
             }
             break
-            case '12345bc': case '12345broadcast': case '12345bcall': {
+            case 'bc': case 'broadcast': case 'bcall': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw `*Mana teks nya?*\n\_Contoh:_ ${prefix + command} Hello guys im WhatsApp bot in here`
                 let anu = await store.chats.all().map(v => v.id)
@@ -1797,7 +1797,7 @@ case '12345antilink':
             }
             break
 
-            case '12345chatinfo': {
+            case 'chatinfo': {
                 if (!m.quoted) reply('Reply to mesaage')
                 let msg = await m.getQuotedObj()
                 if (!m.quoted.isBaileys) throw 'The message was not sent by a bot!'
@@ -1812,14 +1812,14 @@ case '12345antilink':
                 Pajrin.sendTextWithMentions(m.chat, teks, m)
             }
             break
-            case '12345q': case '12345quoted': {
+            case 'q': case 'quoted': {
 		if (!m.quoted) return reply('Reply Message!!')
 		let wokwol = await Pajrin.serializeM(await m.getQuotedObj())
 		if (!wokwol.quoted) return reply('The message you replied to does not contain a reply')
 		await wokwol.quoted.copyNForward(m.chat, true)
             }
 	    break
-            case '12345listpc': {
+            case 'listpc': {
                  let anu = await store.chats.all().filter(v => v.id.endsWith('.net')).map(v => v.id)
                  let teks = `⬣ *PERSONAL CHAT LIST*\n\nTotal Chat : ${anu.length} Chat\n\n`
                  for (let i of anu) {
@@ -1829,7 +1829,7 @@ case '12345antilink':
                  Pajrin.sendTextWithMentions(m.chat, teks, m)
              }
              break
-                case '12345listgc': {
+                case 'listgc': {
                  let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
                  let teks = `⬣ *GROUP CHAT LIST*\n\nTotal Group : ${anu.length} Group\n\n`
                  for (let i of anu) {
@@ -1839,14 +1839,14 @@ case '12345antilink':
                  Pajrin.sendTextWithMentions(m.chat, teks, m)
              }
              break
-             case '12345listonline': case '12345onlinelist': case '12345liston': {
+             case 'listonline': case 'onlinelist': case 'liston': {
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
                     Pajrin.sendText(m.chat, 'Online List:\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
 //[ Islam MENU]\\ apikey lolhuman
-         case '12345listsurah': case '12345listsurat': case '12345surahlist':
+         case 'listsurah': case 'listsurat': case 'surahlist':
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/quran?apikey=${global.apilol}`)
                     get_result = get_result.result
                     ini_txt = 'List Surah:\n'
@@ -1855,7 +1855,7 @@ case '12345antilink':
                     }
                     m.reply(ini_txt)
                     break                                
-case '12345alquran': {
+case 'alquran': {
 let buttons = [
                      {buttonId: `${prefix}listsurah`, buttonText: {displayText: '📋LIST NOMOR SURAH📋'}, type: 1}             
                 ]
@@ -1889,7 +1889,7 @@ let buttons = [
                     }
                     }
                     break
-case '12345alquranmp3': case '12345alquranaudio': {
+case 'alquranmp3': case 'alquranaudio': {
 	let buttons = [
                      {buttonId: `${prefix}listsurah`, buttonText: {displayText: '📋LIST NOMOR SURAH📋'}, type: 1}             
                 ]
@@ -1908,7 +1908,7 @@ Pajrin.sendMessage(m.chat, { audio: { url : links }, mimetype: 'audio/mpeg'}, { 
 }
 }
 break
-case '12345surahmp3': case '12345surahaudio': {
+case 'surahmp3': case 'surahaudio': {
 	let buttons = [
                      {buttonId: `${prefix}listsurah`, buttonText: {displayText: '📋LIST NOMOR SURAH📋'}, type: 1}             
                 ]
@@ -1927,7 +1927,7 @@ Pajrin.sendMessage(m.chat, { audio: { url : links }, mimetype: 'audio/mpeg'}, { 
 }
 }
 break
-case '12345ayatmp3': case '12345ayataudio': {
+case 'ayatmp3': case 'ayataudio': {
 	let buttons = [
                      {buttonId: `${prefix}listsurah`, buttonText: {displayText: '📋LIST NOMOR SURAH📋'}, type: 1}             
                 ]
@@ -1947,7 +1947,7 @@ Pajrin.sendMessage(m.chat, { audio: { url : links }, mimetype: 'audio/mpeg'}, { 
 }
 break
 
-         case '12345jadwalsholat':
+         case 'jadwalsholat':
                     if (!text) throw `*Masukan nama kabupaten/kota?*\n_Contoh :_ ${prefix + command} madiun`
                     daerah = args.join(" ")
 get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apikey=${global.apilol}`)
@@ -1966,7 +1966,7 @@ get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apike
                     replay(ini_txt)
                     break  
                     
-             case '12345hadits': case '12345hadith': case '12345hadist': {
+             case 'hadits': case 'hadith': case 'hadist': {
 		if (!args[0]) throw `*Masukan hadist NomorHadits*
 _Contoh:_
 ${prefix + command} bukhari 1
@@ -2039,7 +2039,7 @@ ${id}`)
 		}
 		}
 		break
-case '12345niatsholat': case '12345niatshalat': case '12345niatsalat': case '12345sholatniat': {
+case 'niatsholat': case 'niatshalat': case 'niatsalat': case 'sholatniat': {
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
                     title: `Hai ${pushname}`,
@@ -2084,7 +2084,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-        case '12345niat2': {
+        case 'niat2': {
         if (!text) throw `*Niat shalat apa?*\n_Contoh :_ ${prefix + command} subuh`
         	let res = await fetchJson(`https://api.lolhuman.xyz/api/niatsholat/${text}?apikey=${global.apilol}`)
         replay(`*〔 ${res.result.name} 〕*
@@ -2095,7 +2095,7 @@ ${res.result.latin}
 ${res.result.id}`)
 }
 break
-case '12345maghrib': {
+case 'maghrib': {
         	
         replay(`*〔 Niat Sholat Maghrib 〕*
 أُصَلِّى فَرْضَ المَغْرِبِ ثَلاَثَ رَكَعاَتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لله تَعَالَى.
@@ -2105,7 +2105,7 @@ Ushallii fardhal maghribi tsalaatsa raka’aatin mustaqbilal qiblati adaa’an l
 "Saya (berniat) mengerjakan sholat fardhu maghrib tiga raka’at dengan menghadap kiblat karena Allah Ta’ala."`)
 }
 break
-case '12345asmaulhusna': {
+case 'asmaulhusna': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/asmaulhusna?apikey=${global.apilol}`)
      let buttons = [
                      {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
@@ -2132,7 +2132,7 @@ case '12345asmaulhusna': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345kisah2': case '12345kisahnabi2': {
+case 'kisah2': case 'kisahnabi2': {
                 if (args.length == 0) return reply(`Example: ${prefix + command} Muhammad`)
                     query = args.join(" ")
                     getresult = await fetchJson(`http://api.lolhuman.xyz/api/kisahnabi/${query}?apikey=${global.apilol}`)
@@ -2145,7 +2145,7 @@ case '12345kisah2': case '12345kisahnabi2': {
                     replay(ini_txt)
                     }
                     break
-case '12345kisahnabi': case '12345kisahrasul': case '12345rasulkisah': case '12345nabikisah': {
+case 'kisahnabi': case 'kisahrasul': case 'rasulkisah': case 'nabikisah': {
 	//if (!text) throw `*Masukan Teks*\n_Contoh:_ ${prefix + command} dasar anak tiktok suka pargoy di tempat umum`
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
@@ -2293,7 +2293,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             break
 
 //[ DOWNLOAD MENU SEARCH MENU]\\ No Apikey
-	    case '12345yts': case '12345ytsearch': {
+	    case 'yts': case 'ytsearch': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} Story WA Anime`
                 let yts = require("yt-search")
                 let search = await yts(text)
@@ -2305,7 +2305,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
             break
-         case '12345gugel': case '12345google': {
+         case 'gugel': case 'google': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} Presiden pertama Indonesia`
                 let google = require('google-it')
                 google({'query': text}).then(res => {
@@ -2319,7 +2319,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 })
                 }
                 break
-        case '12345gimage': case '12345googleimage': {
+        case 'gimage': case 'googleimage': {
         if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} Soekarno`
         let gis = require('g-i-s')
         gis(text, async (error, result) => {
@@ -2341,7 +2341,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
         })
         }
         break
-	    case '12345play': case '12345ytplay': {
+	    case 'play': case 'ytplay': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} DJ love story`
                 let yts = require("yt-search")
                 let search = await yts(text)
@@ -2385,7 +2385,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                   Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-	    case '12345ytmp3': case '12345ytaudio': {
+	    case 'ytmp3': case 'ytaudio': {
                 let { yta } = require('./lib/y2mate')
                 if (!text) throw `*Masukan Link YouTube*\n_Contoh :_ ${prefix + command} https://youtube.com/shorts/6853iqLNWKA`
                 let quality = args[1] ? args[1] : '320kbps'
@@ -2400,7 +2400,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 Pajrin.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
-            case '12345ytmp4': case '12345ytvideo': {
+            case 'ytmp4': case 'ytvideo': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `*Masukan Link YouTube*\n_Contoh :_ ${prefix + command} https://youtube.com/shorts/6853iqLNWKA`
                 let quality = args[1] ? args[1] : '360p'
@@ -2414,7 +2414,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
 *⭔ Resololution :* ${args[1] || '360p'}` }, { quoted: m })
             }
             break
-	    case '12345getmusic': {
+	    case 'getmusic': {
                 let { yta } = require('./lib/y2mate')
                 if (!text) throw `*Reply pesan bot (List Result yt search)* , dengan caption : ${prefix + command} <nomor list>\n\n*_Contoh :_* ${prefix + command} 1`
                 if (!m.quoted) return reply('Reply Pesan (List yt search yang dikirim oleh Bot) ')
@@ -2428,7 +2428,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 Pajrin.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
-            case '12345getvideo': {
+            case 'getvideo': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `*Reply pesan bot (List Result yt search)* , dengan caption : ${prefix + command} <nomor list>\n\n*_Contoh :_* ${prefix + command} 3 `
                 if (!m.quoted) return reply('Reply Pesan (List yt search yang dikirim oleh Bot) ')
@@ -2441,7 +2441,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 Pajrin.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `⭔ Title : ${media.title}\n⭔ File Size : ${media.filesizeF}\n⭔ Url : ${isUrl(text)}\n⭔ Ext : MP3\n⭔ Resolution : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
-            case '12345pinterest': {
+            case 'pinterest': {
             	
                 replay(mess.wait)
 		let { pinterest } = require('./lib/scraper')
@@ -2463,7 +2463,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
             }
             break
             
-	    case '12345couplepp': case '12345ppcouple': {
+	    case 'couplepp': case 'ppcouple': {
                 replay(mess.wait)
                 let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
                 let random = anu[Math.floor(Math.random() * anu.length)]
@@ -2471,7 +2471,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 Pajrin.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
             }
 	    break
-            case '12345coffee': case '12345kopi': {
+            case 'coffee': case 'kopi': {
             let buttons = [
                     {buttonId: `${prefix}coffe`, buttonText: {displayText: '➡️Next Image➡️'}, type: 1}
                 ]
@@ -2485,7 +2485,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case '12345wallpaper': {
+            case 'wallpaper': {
             	if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} uciha sasuke`
 		let { wallpaper } = require('./lib/scraper')
                 anu = await wallpaper(text)
@@ -2503,7 +2503,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case '12345wikimedia': {
+            case 'wikimedia': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} gunung lawu`
 		let { wikimedia } = require('./lib/scraper')
                 anu = await wikimedia(text)
@@ -2522,7 +2522,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
             }
             break
 //[SEARCH MENU]\\ With apikey lol human
-                    case '12345konachan': case '12345konachansearch': {
+                    case 'konachan': case 'konachansearch': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} azur_lane`                 
                 let buttons = [
                     {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
@@ -2537,7 +2537,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-          case '12345pixiv': case '12345pixivsearch': {
+          case 'pixiv': case 'pixivsearch': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} loli kawai`
                 let anu = await fetchJson(api('zenz', '/pixiv2', { query: text }, 'apikey'))
                 let asu = anu.result
@@ -2555,7 +2555,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-          case '12345unsplash': case '12345unsplashsearch': {
+          case 'unsplash': case 'unsplashsearch': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} mountain`
                 let anu = await fetchJson(api('zenz', '/unsplash', { query: text }, 'apikey'))
                 let asu = anu.result
@@ -2573,7 +2573,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-           case '12345groupwhatsapp': case '12345grupwa':  case '12345groupwa': case '12345gcwa': {
+           case 'groupwhatsapp': case 'grupwa':  case 'groupwa': case 'gcwa': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} islami`
                 let anu = await fetchJson(api('zenz', '/groupwhatsapp2', { query: text }, 'apikey'))
                 let asu = anu.result
@@ -2593,7 +2593,7 @@ ${result.link}`,
              Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
           }
                 break
-case '12345katabijak': case '12345katabijaksearch': {
+case 'katabijak': case 'katabijaksearch': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} cinta`
                 let anu = await fetchJson(api('zenz', '/searchbijak', { query: text }, 'apikey'))
                 let asu = anu.result
@@ -2614,7 +2614,7 @@ _~${result.author}_`,
           }
                 break
 //[Creator maker]\\ With apikey lol human
-              case '12345gsuggest': case '12345googlesuggest': {
+              case 'gsuggest': case 'googlesuggest': {
                 if (!text) throw `*Masukan teks1+teks2+teks3*\n _Contoh:_ ${prefix + command} Fazrin+Fazrin Gamteng+Fazrin Gamteng banget`
                 replay(mess.wait)
                 siji = arg.split('+')[0]
@@ -2623,7 +2623,7 @@ _~${result.author}_`,
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/gsuggest?apikey=${global.apilol}&text1=${siji}&text2=${loro}&text3=${telu}` }, caption: `Google Suggest` }, { quoted: m })
             }
             break
-            case '12345ytkomen': case '12345ytcomment': case '12345youtubecomment': {
+            case 'ytkomen': case 'ytcomment': case 'youtubecomment': {
                 if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} username+comment*\n_Contoh:_ ${prefix + command} xZrinva+Hai rakyat wibu, apa kabarnya?`
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -2635,25 +2635,25 @@ _~${result.author}_`,
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/ytcomment?apikey=${global.apilol}&username=${siji}&comment=${loro}&img=${anu}` }, caption: `YouTube Comment` }, { quoted: m })
             }
             break
-            case '12345amongus': {
+            case 'amongus': {
             	if (!text) throw `*Masukan teks !*\n _Contoh:_ ${prefix + command} Hai rakyat wibu`
             m.reply(mess.wait)
             Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/amongus?apikey=${global.apilol}&text=${text}` }, caption: `Amongus maker` }, { quoted: m })	
             }
             break
-           case '12345idulfitri': {
+           case 'idulfitri': {
             	if (!text) throw `*Masukan teks !*\n _Contoh:_ ${prefix + command} xZrinva`
             m.reply(mess.wait)
             Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/idulfitri?apikey=${global.apilol}&text=${text}` }, caption: `Idul Fitri Card Maker` }, { quoted: m })	
             }
             break
-            case '12345ramadhan': {
+            case 'ramadhan': {
             	if (!text) throw `*Masukan teks !*\n _Contoh:_ ${prefix + command} xZrinva`
             m.reply(mess.wait)
             Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/ramadhan?apikey=${global.apilol}&text=${text}` }, caption: `Ramadhan Card Maker` }, { quoted: m })	
             }
             break
-            case '12345phkomen': case '12345pornhubcomment': case '12345phcomment': {
+            case 'phkomen': case 'pornhubcomment': case 'phcomment': {
                 if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} username+comment*\n_Contoh:_ ${prefix + command} xZrinva+Hai rakyat wibu, apa kabarnya?`
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -2665,13 +2665,13 @@ _~${result.author}_`,
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/phcomment?apikey=${global.apilol}&img=${anu}&text=${loro}&username=${siji}` }, caption: `PornHub Comment` }, { quoted: m })
             }
             break
-            case '12345twtrump': case '12345tweettrump': {
+            case 'twtrump': case 'tweettrump': {
             	if (!text) throw `*Masukan teks !*\n _Contoh:_ ${prefix + command} Hai rakyat Indonesia yang mayoritas wibu`
         m.reply(mess.wait)
     Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/tweettrump?apikey=${global.apilol}&text=${text}` }, caption: `Tweet Donald Trump` }, { quoted: m })	
             }
             break
-case '12345ktp': case '12345ktpmaker': case '12345makerktp': {
+case 'ktp': case 'ktpmaker': case 'makerktp': {
                 if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} Nik+Provinsi+Kabupaten+Nama+tempat tanggal lahir+Jenis kelamin+Jalan+Rt/Rw+Desa+Kecamatan+Agama+Status kawin+Pekerjaan+Warga Negara+Berlaku hingga*\n\n_Contoh:_ \n${prefix + command} 3531130509050007+Jawa Barat+Sukabumi+xZrinva+Mars, 30-Februari-2030+Belum Diketahui+JL Jendral Fazrin +02/01+Sukonedo+Jangan Asem+Islam+Jomblo kack+Nuyul+Indonesia asli+Hari Kiamat`
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -2697,7 +2697,7 @@ case '12345ktp': case '12345ktpmaker': case '12345makerktp': {
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/ktpmaker?apikey=${global.apilol}&nik=${nik}&prov=${prov}&kabu=${kabu}&name=${name}&ttl=${ttl}&jk=${jk}&jl=${jl}&rtrw=${rtrw}&lurah=${lurah}&camat=${camat}&agama=${agama}&nikah=${nikah}&kerja=${kerja}&warga=${warga}&until=${berlaku}&img=${anu}` }, caption: `KTP Maker` }, { quoted: m })
             }
             break
-case '12345yugioh': case '12345ygo': case '12345yougioh': {
+case 'yugioh': case 'ygo': case 'yougioh': {
                 if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} Title+Deskripsi+atk+def*\n\n_Contoh:_\n${prefix + command} xZrinva+Owner Paling Gans, Makasih+999+1955`
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -2712,13 +2712,13 @@ case '12345yugioh': case '12345ygo': case '12345yougioh': {
             }
             break
 //[quotes MAKER MENU]\\ With apikey lol human
-           case '12345quotesmaker': case '12345qmaker': {
+           case 'quotesmaker': case 'qmaker': {
             	if (!text) throw `*Masukan teks/quotes!*\n\n  _Contoh:_\n${prefix + command} Sukses bukanlah kunci kebahagiaan. Kebahagiaan adalah kunci kesuksesan. Jika Anda mencintai pekerjaan Anda, Anda akan menjadi orang yang sukses`
             m.reply(mess.wait)
             Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/quotemaker?apikey=${global.apilol}&text=${text}` }, caption: `Quotes Maker` }, { quoted: m })	
             }
             break
-            case '12345quotesmaker2': case '12345qmaker2': {
+            case 'quotesmaker2': case 'qmaker2': {
             	if (!text) throw `*Masukan author+quotes!*\n\n  _Contoh:_\n${prefix + command} Fazrin Mauza+Sukses bukanlah kunci kebahagiaan. Kebahagiaan adalah kunci kesuksesan. Jika Anda mencintai pekerjaan Anda, Anda akan menjadi orang yang sukses`
             m.reply(mess.wait)
       author1 = arg.split('+')[0]
@@ -2726,7 +2726,7 @@ case '12345yugioh': case '12345ygo': case '12345yougioh': {
       Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/quotemaker2?apikey=${global.apilol}&text=${quotesnya}&author=${author1}` }, caption: `Quotes Maker2` }, { quoted: m })	
             }
             break
-case '12345qmaker3': case '12345quotesmaker2': case '12345quotemakr3': {
+case 'qmaker3': case 'quotesmaker2': case 'quotemakr3': {
                 if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} teks/quotes*\n\n_Contoh:_\n${prefix + command} Sukses bukanlah kunci kebahagiaan. Kebahagiaan adalah kunci kesuksesan. Jika Anda mencintai pekerjaan Anda, Anda akan menjadi orang yang sukses`
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -2738,7 +2738,7 @@ case '12345qmaker3': case '12345quotesmaker2': case '12345quotemakr3': {
             break
 
 //[Game id check  game id cek MENU]\\ With apikey lol human
-            case '12345cekff': case '12345ffcek': {
+            case 'cekff': case 'ffcek': {
             	if (!text) throw `*Masukan PlayerID Free Fire !*\n _Contoh:_ ${prefix + command} 570098876`
            m.reply(mess.wait)
  let anu = await fetchJson(`https://api.lolhuman.xyz/api/freefire/${text}?apikey=${global.apilol}`)
@@ -2748,7 +2748,7 @@ replay(`*〔 Free Fire Checker 〕*
 *⭔ Username :* ${anu.result}`)
 }
 break
-case '12345cekmlbb': case '12345mlbbcek': {
+case 'cekmlbb': case 'mlbbcek': {
             	if (!text) throw `*Masukan PlayerID server Mobile Legend !*\n _Contoh:_ \n${prefix + command} 84830127 2169`
             idplayer = args[0]
                 serverid = args[1]
@@ -2761,7 +2761,7 @@ replay(`*〔 Mobile Legend Checker 〕*
 *⭔ Username :* ${anu.result}`)
 }
 break
-case '12345cekpubg': case '12345pubgcek': {
+case 'cekpubg': case 'pubgcek': {
             	if (!text) throw `*Masukan PlayerID PUBG !*\n _Contoh:_\n${prefix + command} 5119961143`
            m.reply(mess.wait)
  let anu = await fetchJson(`https://api.lolhuman.xyz/api/pubg/${text}?apikey=${global.apilol}`)
@@ -2771,7 +2771,7 @@ replay(`*〔 PUBG Checker 〕*
 *⭔ Username :* ${anu.result}`)
 }
 break
-case '12345cekdomino': case '12345dominocek': {
+case 'cekdomino': case 'dominocek': {
             	if (!text) throw `*Masukan UserID Highh Domino !*\n _Contoh:_\n${prefix + command} 291756557`
            m.reply(mess.wait)
  let anu = await fetchJson(`https://api.lolhuman.xyz/api/higghdomino/${text}?apikey=${global.apilol}`)
@@ -2784,7 +2784,7 @@ break
 
 //[Teks MAKER MENU]\\ With apikey lol human
 //nulis
-case '12345nulis': {
+case 'nulis': {
                 if (!text) throw `*Masukan Teks !*\n _Contoh:_ \n${prefix + command} Nama : Fazrin Mauza 
 Nomor absen : 11
 Kelas : X IPA 5
@@ -2799,14 +2799,14 @@ Mapel : Biologi
             break
 
 //1 TEXT PRO ME
-       case '12345blackpink': case '12345neon': case '12345greenneon': case '12345futureneon': case '12345sandwriting': case '12345sandsummer': case '12345sandengraved': case '12345text1917': case '12345holographic': case '12345neonlight': case '12345metaldark': case '12345halloween': case '12345bloodfrosted': case '12345newyearcard': case '12345deluxesilver': case '12345minion': case '12345toxic': case '12345bokeh': case '12345natureleaves': case '12345fireworksparkle': case '12345jokerlogo': case '12345icecold': case '12345breakwall': case '12345roadwarning':  case '12345box3d': case '12345strawberry': case '12345thunder': case '12345horrorblood': case '12345summersand': case '12345cloud': case '12345luxury': case '12345watercolor': case '12345foggywindow': case '12345harrypotter': case '12345impressiveglitch': case '12345magma': case '12345wonderfulgraffiti': {
+       case 'blackpink': case 'neon': case 'greenneon': case 'futureneon': case 'sandwriting': case 'sandsummer': case 'sandengraved': case 'text1917': case 'holographic': case 'neonlight': case 'metaldark': case 'halloween': case 'bloodfrosted': case 'newyearcard': case 'deluxesilver': case 'minion': case 'toxic': case 'bokeh': case 'natureleaves': case 'fireworksparkle': case 'jokerlogo': case 'icecold': case 'breakwall': case 'roadwarning':  case 'box3d': case 'strawberry': case 'thunder': case 'horrorblood': case 'summersand': case 'cloud': case 'luxury': case 'watercolor': case 'foggywindow': case 'harrypotter': case 'impressiveglitch': case 'magma': case 'wonderfulgraffiti': {
                 if (!text) throw `*Masukan teks!*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
                 replay(mess.wait)
                 Pajrin.sendMessage(m.chat, { image: { url: api('zenz', '/textprome/' + command, { text: text }, 'apikey') }, caption: `Text pro ${command}` }, { quoted: m })
             }
           break
 //2 TEXT PRO ME
-case '12345pornhub': case '12345marvelstudio': case '12345ninjalogo': case '12345space': case '12345avenger': case '12345glitch': case '12345coolgravity': case '12345wallgravity': case '12345wolflogo': case '12345lionlogo': case '12345marvelstudio': {
+case 'pornhub': case 'marvelstudio': case 'ninjalogo': case 'space': case 'avenger': case 'glitch': case 'coolgravity': case 'wallgravity': case 'wolflogo': case 'lionlogo': case 'marvelstudio': {
                 if (!text) throw `*Masukan teks1 teks2*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
                 replay(mess.wait)
                 siji = args[0]
@@ -2815,14 +2815,14 @@ case '12345pornhub': case '12345marvelstudio': case '12345ninjalogo': case '1234
             }
             break
 //1 PHOTO OXY
-          case '12345smoke': case '12345romance': case '12345cup2': case '12345shadow': case '12345sandwriting': case '12345coffe': case '12345love': case '12345undergrass': case '12345lovemessage': case '12345burnpaper': case '12345nature3d': case '12345wolfmetal': case '12345summer3d': case '12345woodenboard': case '12345woodheart': case '12345flamming': case '12345fallleaves': case '12345summernature': case '12345goldenrose': case '12345underwater': case '12345carvedwood': case '12345harrypotter': {
+          case 'smoke': case 'romance': case 'cup2': case 'shadow': case 'sandwriting': case 'coffe': case 'love': case 'undergrass': case 'lovemessage': case 'burnpaper': case 'nature3d': case 'wolfmetal': case 'summer3d': case 'woodenboard': case 'woodheart': case 'flamming': case 'fallleaves': case 'summernature': case 'goldenrose': case 'underwater': case 'carvedwood': case 'harrypotter': {
                 if (!text) throw `*Masukan teks!*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
                 replay(mess.wait)
                 Pajrin.sendMessage(m.chat, { image: { url: api('zenz', '/photooxy1/' + command, { text: text }, 'apikey') }, caption: `Photo oxy  ${command}` }, { quoted: m })
             }
           break
 //2 PHOTO OXY
-case '12345pubg': case '12345battlefield4': case '12345arcade8bit': {
+case 'pubg': case 'battlefield4': case 'arcade8bit': {
                 if (!text) throw `*Masukan teks1 teks2*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
                 replay(mess.wait)
                 siji = args[0]
@@ -2830,7 +2830,7 @@ case '12345pubg': case '12345battlefield4': case '12345arcade8bit': {
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/photooxy2/${command}?apikey=${global.apilol}&text1=${siji}&text2=${loro}` }, caption: `Photo oxy ${command}` }, { quoted: m })
             }
             break
-case '12345tiktokmaker': {
+case 'tiktokmaker': {
                 if (!text) throw `*Masukan teks1 teks2*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
                 replay(mess.wait)
                 siji = args[0]
@@ -2839,44 +2839,44 @@ case '12345tiktokmaker': {
             }
             break
 // EPHOTO 360
-case '12345hologram3d': case '12345birthdaycake': case '12345lighttext': case '12345galaxywallpaper': case '12345luxurygold': case '12345activegalaxybat': case '12345textbyname': case '12345starsnight': case '12345aovwallpaper': case '12345pubgmaskot': case '12345mlwallpaper': case '12345anonymhacker': case '12345freefire': case '12345avatardota': case '12345avatarlolnew': case '12345logogaming': {
+case 'hologram3d': case 'birthdaycake': case 'lighttext': case 'galaxywallpaper': case 'luxurygold': case 'activegalaxybat': case 'textbyname': case 'starsnight': case 'aovwallpaper': case 'pubgmaskot': case 'mlwallpaper': case 'anonymhacker': case 'freefire': case 'avatardota': case 'avatarlolnew': case 'logogaming': {
                 if (!text) throw `*Masukan teks!*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
                 replay(mess.wait)
                 Pajrin.sendMessage(m.chat, { image: { url: api('zenz', '/ephoto1/' + command, { text: text }, 'apikey') }, caption: `Ephoto 360  ${command}` }, { quoted: m })
             }
           break
 //[SERTIFIKAT MENU]\\ With apikey lol human
-case '12345ytsilver': {
+case 'ytsilver': {
                 if (!text) throw `*Masukan Teks*\n _Contoh:_ ${prefix + command} xZrinva`
                 replay(mess.wait)
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/ephoto1/silverplaybutton?apikey=${global.apilol}&text=${text}` }, caption: `Sertifikat YouTube Silver` }, { quoted: m })
             }
             break
-case '12345ytgold': {
+case 'ytgold': {
                 if (!text) throw `*Masukan Teks*\n _Contoh:_ ${prefix + command} xZrinva`
                 replay(mess.wait)
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/ephoto1/goldplaybutton?apikey=${global.apilol}&text=${text}` }, caption: `Sertifikat YouTube Gold` }, { quoted: m })
             }
             break
-case '12345tolol': {
+case 'tolol': {
                 if (!text) throw `*Masukan Nama*\n _Contoh:_ ${prefix + command} Fazrin Mauza`
                 replay(mess.wait)
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/toloserti?apikey=${global.apilol}&name=${text}` }, caption: `Sertifikat Tolol` }, { quoted: m })
             }
             break
-case '12345fuckboy': case '12345fuckgirl': {
+case 'fuckboy': case 'fuckgirl': {
                 if (!text) throw `*Masukan Nama*\n _Contoh:_ ${prefix + command} Fazrin Mauza`
                 replay(mess.wait)
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}&name=${text}` }, caption: `Sertifikat ${command}` }, { quoted: m })
             }
             break
-case '12345bucin': {
+case 'bucin': {
                 if (!text) throw `*Masukan Nama*\n _Contoh:_ ${prefix + command} Fazrin Mauza`
                 replay(mess.wait)
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/bucinserti?apikey=${global.apilol}&name=${text}` }, caption: `Sertifikat Bucin` }, { quoted: m })
             }
             break
-case '12345pacar': {
+case 'pacar': {
                 if (!text) throw `*Masukan nama1 nama2*\n _Contoh:_ ${prefix + command} Fazrin Afita`
                 replay(mess.wait)
                 nama1 = args[0] 
@@ -2884,7 +2884,7 @@ case '12345pacar': {
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/pacarserti?apikey=${global.apilol}&name1=${nama1}&name2=${nama2}` }, caption: `Sertifikat Pacar` }, { quoted: m })
             }
             break
-case '12345goodboy': case '12345goodgirl': case '12345badboy': case '12345badgirl': {
+case 'goodboy': case 'goodgirl': case 'badboy': case 'badgirl': {
                 if (!text) throw `*Masukan Nama*\n _Contoh:_ ${prefix + command} Fazrin Mauza`
                 replay(mess.wait)
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}&name=${text}` }, caption: `Sertifikat ${command}` }, { quoted: m })
@@ -2892,7 +2892,7 @@ case '12345goodboy': case '12345goodgirl': case '12345badboy': case '12345badgir
             break
 
 //[Random image MENU]\\ With apikey lol human
-case '12345rblackpink': {
+case 'rblackpink': {
 let buttons = [
                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
                 ]
@@ -2906,7 +2906,7 @@ let buttons = [
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-case '12345bts': case '12345exo': case '12345cecan': case '12345cogan': case '12345estetic': case '12345elf': case '12345loli': case '12345neko': case '12345waifu': case '12345shota': case '12345husbu': case '12345sagiri': case '12345elaina': case '12345shinobu': case '12345kanna': case '12345megumin': case '12345art': case '12345wallnime': {
+case 'bts': case 'exo': case 'cecan': case 'cogan': case 'estetic': case 'elf': case 'loli': case 'neko': case 'waifu': case 'shota': case 'husbu': case 'sagiri': case 'elaina': case 'shinobu': case 'kanna': case 'megumin': case 'art': case 'wallnime': {
                 let buttons = [
                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
                 ]
@@ -2921,7 +2921,7 @@ case '12345bts': case '12345exo': case '12345cecan': case '12345cogan': case '12
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-case '12345neko2': {
+case 'neko2': {
 let buttons = [
                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
                 ]
@@ -2936,7 +2936,7 @@ let buttons = [
        }
           break
 
-          case '12345ngif': case '12345feed': case '12345kiss': case '12345smug': case '12345tickle': case '12345cuddle': case '12345fox_girl': {
+          case 'ngif': case 'feed': case 'kiss': case 'smug': case 'tickle': case 'cuddle': case 'fox_girl': {
 	m.reply(mess.wait)
 	let media = `https://api.lolhuman.xyz/api/random2/${command}?apikey=${global.apilol}`
 	let buttons = [
@@ -2953,7 +2953,7 @@ let buttons = [
          await fs.unlinkSync(encmedia)
    }
             break
-case '12345bully': case '12345cry': case '12345hug': case '12345awoo': case '12345lick': case '12345pat': case '12345bonk': case '12345yeet': case '12345blush': case '12345smile': case '12345wave': case '12345highfive': case '12345handhold': case '12345nom': case '12345bite': case '12345glomp': case '12345kill': case '12345slap': case '12345happy': case '12345wink': case '12345dance': case '12345cringe': {
+case 'bully': case 'cry': case 'hug': case 'awoo': case 'lick': case 'pat': case 'bonk': case 'yeet': case 'blush': case 'smile': case 'wave': case 'highfive': case 'handhold': case 'nom': case 'bite': case 'glomp': case 'kill': case 'slap': case 'happy': case 'wink': case 'dance': case 'cringe': {
 	m.reply(mess.wait)
 	let media = `https://api.lolhuman.xyz/api/random/${command}?apikey=${global.apilol}`
 	let buttons = [
@@ -2970,7 +2970,7 @@ case '12345bully': case '12345cry': case '12345hug': case '12345awoo': case '123
          await fs.unlinkSync(encmedia)
    }
             break
-            case '12345gasm': {
+            case 'gasm': {
 	m.reply(mess.wait)
 	let media = `https://api.lolhuman.xyz/api/random2/${command}?apikey=${global.apilol}`
 	let buttons = [
@@ -2991,11 +2991,11 @@ case '12345bully': case '12345cry': case '12345hug': case '12345awoo': case '123
 
 
 //[Random text MENU]\\ With apikey lol human
-case '12345copy':{
+case 'copy':{
 	m.reply(`${text}`)
 	}
 	break
-case '12345quotes': {
+case 'quotes': {
                 let anu = await fetchJson(api('zenz', '/random/quotes', {}, 'apikey'))
                 quotesnya = anu.result.quote
                 quotesby = anu.result.by
@@ -3018,7 +3018,7 @@ case '12345quotes': {
                 }
             }
             break
- case '12345quotesislami': {
+ case 'quotesislami': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/quotes/islami?apikey=${global.apilol}`)
      let buttons = [
                      {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
@@ -3033,7 +3033,7 @@ case '12345quotes': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345quotesdilan': {
+case 'quotesdilan': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/quotes/dilan?apikey=${global.apilol}`)
      let buttons = [
                      {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
@@ -3048,7 +3048,7 @@ case '12345quotesdilan': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345quotesanime': {
+case 'quotesanime': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/random/quotesnime?apikey=${global.apilol}`)
      let buttons = [
                      {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
@@ -3065,7 +3065,7 @@ Episode: ${anu.result.episode}`,
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345faktaunik': case '12345pantun': case '12345puisi': case '12345katabucin': {
+case 'faktaunik': case 'pantun': case 'puisi': case 'katabucin': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/random/${command}?apikey=${global.apilol}`)
      let buttons = [
                      {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
@@ -3080,7 +3080,7 @@ case '12345faktaunik': case '12345pantun': case '12345puisi': case '12345katabuc
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345nasihat': {
+case 'nasihat': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/random/katabijak?apikey=${global.apilol}`)
      let buttons = [
                      {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
@@ -3095,7 +3095,7 @@ case '12345nasihat': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case '12345cerpen': {
+            case 'cerpen': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cerpen?apikey=${global.apilol}`)
      let buttons = [
                      {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
@@ -3112,7 +3112,7 @@ ${anu.result.cerpen}`,
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345ceritahoror': {
+case 'ceritahoror': {
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/ceritahoror?apikey=${global.apilol}`)        
                 let buttons = [
                     {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1},
@@ -3133,13 +3133,13 @@ ${anu.result.story}`,
             }
           break
 //[Informasi MENU]\\ With apikey lol human
-case '12345wikipedia': case '12345wiki': {
+case 'wikipedia': case 'wiki': {
 	if (!text) throw `*Apa yang mau di cari?*\n _Contoh:_ ${prefix + command} wibu`
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/wiki?apikey=${global.apilol}&query=${text}`)
 replay(anu.result)
  }
 break
-            case '12345kbbi': {
+            case 'kbbi': {
             	 if (!text) throw `*Apa yang mau di tanyakan?*\n _Contoh:_ ${prefix + command} sekolah`
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/kbbi?apikey=${global.apilol}&query=${text}`)
  makn = anu.result
@@ -3160,7 +3160,7 @@ ${makne.submakna}`,
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345infogempa': {
+case 'infogempa': {
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/infogempa?apikey=${global.apilol}`)        
                 let buttons = [
                     {buttonId: `${prefix} menu`, buttonText: {displayText: '</Menu'}, type: 1}
@@ -3185,7 +3185,7 @@ case '12345infogempa': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-case '12345jadwaltvnow': case '12345jadwaltv': case '12345acaratvnow': case '12345acaratv': {
+case 'jadwaltvnow': case 'jadwaltv': case 'acaratvnow': case 'acaratv': {
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/jadwaltv/now?apikey=${global.apilol}`)
 	una = anu.result
 	replay(`*〔 Jadwal TV Now 〕*
@@ -3230,7 +3230,7 @@ ${una.rtv}
 ${una.tvri}`)
 }
 break
-case '12345cuaca': case '12345infocuaca': {
+case 'cuaca': case 'infocuaca': {
 	if (!text) throw `*Masukan nama kota/kecamatan*\n _Contoh:_ ${prefix + command} Ngawi`
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cuaca/${text}?apikey=${global.apilol}`)
 	una = anu.result
@@ -3247,7 +3247,7 @@ replay(`*〔 Cuaca di ${una.tempat} 〕*
 *⭔ Latitude :* ${una.latitude}`)
  }
 break
-case '12345coronaindo': case '12345covidindo': {
+case 'coronaindo': case 'covidindo': {
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/corona/indonesia?apikey=${global.apilol}`)
 	una = anu.result
 replay(`*〔 Info Covid-19 Indonesia 〕*
@@ -3258,7 +3258,7 @@ replay(`*〔 Info Covid-19 Indonesia 〕*
 *⭔ Dirawat :* ${una.dirawat}`)
  }
 break
-case '12345corona': case '12345covid': {
+case 'corona': case 'covid': {
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/corona/global?apikey=${global.apilol}`)
 	una = anu.result
 replay(`*〔 Covid-19 Dunia 〕*
@@ -3269,7 +3269,7 @@ replay(`*〔 Covid-19 Dunia 〕*
 *⭔ Dirawat :* ${una.dirawat}`)
  }
 break
-case '12345jarak': case '12345jaraktempuh': case '12345jarakkota': {
+case 'jarak': case 'jaraktempuh': case 'jarakkota': {
 	if (!text) throw `*Masukan nama kota1 kota2*\n _Contoh:_ ${prefix + command} banyuwangi malang`
 	tek1 = args[0] 
 	tek2 = args[1] 
@@ -3286,7 +3286,7 @@ From ${una.from} To ${una.to}
 *⭔ Jalan Kaki :* ${una.jalan_kaki}
 `) }
 break
-case '12345beasiswa': case '12345infobeasiswa': {
+case 'beasiswa': case 'infobeasiswa': {
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/indbeasiswa?apikey=${global.apilol}`)
 	let una = anu.result
 	let result = una[Math.floor(Math.random() * una.length)]
@@ -3305,7 +3305,7 @@ Link: ${result.link}`,
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345brainly': case '12345soal': {
+case 'brainly': case 'soal': {
 	if (!text) throw `*Masukan soal/pertanyaan*\n _Contoh:_ ${prefix + command} orang yang memiliki kewarganegaraan ganda di sebut`
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/brainly?apikey=${global.apilol}&query=${text}`)
 	let una = anu.result
@@ -3331,7 +3331,7 @@ _${result.question.content}_
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345jadwalbola': case '12345bolajadwal': {
+case 'jadwalbola': case 'bolajadwal': {
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/jadwalbola?apikey=${global.apilol}`)
 	let una = anu.result
 	let result = una[Math.floor(Math.random() * una.length)]
@@ -3353,7 +3353,7 @@ case '12345jadwalbola': case '12345bolajadwal': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345chord': {
+case 'chord': {
 	if (!text) throw `*Masukan Judul lagu !*\n _Contoh:_ ${prefix + command} melukis senja`
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/chord?apikey=${global.apilol}&query=${text}`)
 	reply(`*〔 Chord Lagu ${text}〕*
@@ -3365,7 +3365,7 @@ case '12345chord': {
 }
 break
 //[Stalk MENU]\\ With apikey lol human
-       case '12345igstalk': case '12345stalkig': case '12345instastalk': case '12345instagramstalk': {
+       case 'igstalk': case 'stalkig': case 'instastalk': case 'instagramstalk': {
        	if (!text) throw `*Masukan username Instagram*\n _Contoh:_ ${prefix + command} fleyvin_soft`
        m.reply(mess.wait)
        	let anu = await fetchJson(`https://api.lolhuman.xyz/api/stalkig/${text}?apikey=${global.apilol}`)
@@ -3381,7 +3381,7 @@ break
 Pajrin.sendMessage(m.chat, { image: { url: foto },  caption: teks , contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
         }
         break
-        case '12345tiktokstalk': case '12345stalktiktok': case '12345ttstalk': case '12345stalktt': {
+        case 'tiktokstalk': case 'stalktiktok': case 'ttstalk': case 'stalktt': {
        	if (!text) throw `*Masukan username Tiktok*\n _Contoh:_ ${prefix + command} fleyvin_soft`
        m.reply(mess.wait)
        	let anu = await fetchJson(`https://api.lolhuman.xyz/api/stalktiktok/${text}?apikey=${global.apilol}`)
@@ -3398,7 +3398,7 @@ Pajrin.sendMessage(m.chat, { image: { url: foto },  caption: teks , contextInfo:
                   Pajrin.sendMessage(m.chat, { image: { url: foto },  caption: teks , contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
         }
 break
-        case '12345twitterstalk': case '12345twitstalk': case '12345stalktwitter':  {
+        case 'twitterstalk': case 'twitstalk': case 'stalktwitter':  {
        	if (!text) throw `*Masukan username Twitter*\n _Contoh:_ ${prefix + command} jokowi`
        m.reply(mess.wait)
        	let anu = await fetchJson(`https://api.lolhuman.xyz/api/twitter/${text}?apikey=${global.apilol}`)
@@ -3415,7 +3415,7 @@ break
                   Pajrin.sendMessage(m.chat, { image: { url: foto },  caption: teks , contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
         }
 break
-case '12345githubstalk': case '12345stalkgithub': {
+case 'githubstalk': case 'stalkgithub': {
        	if (!text) throw `*Masukan username Twitter*\n _Contoh:_ ${prefix + command} fleyvin_soft`
        m.reply(mess.wait)
        	let anu = await fetchJson(`https://api.lolhuman.xyz/api/github/${text}?apikey=${global.apilol}`)
@@ -3436,7 +3436,7 @@ case '12345githubstalk': case '12345stalkgithub': {
                   Pajrin.sendMessage(m.chat, { image: { url: foto },  caption: teks , contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
         } 
 break
-case '12345youtubestalk': case '12345ytstalk': {
+case 'youtubestalk': case 'ytstalk': {
        	if (!text) throw `*Masukan Nama channel YouTube*\n _Contoh:_ ${prefix + command} xZrinva`
        m.reply(mess.wait)
        	let anu = await fetchJson(`https://api.lolhuman.xyz/api/ytchannel?apikey=${global.apilol}&query=${text}`)
@@ -3461,7 +3461,7 @@ case '12345youtubestalk': case '12345ytstalk': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
         }
 break
-case '12345ip': case '12345ipinfo': case '12345ipaddress':  {
+case 'ip': case 'ipinfo': case 'ipaddress':  {
        	if (!text) throw `*Masukan Alamat IP*\n _Contoh:_ ${prefix + command} 114.142.169.38`
        m.reply(mess.wait)
        	let anu = await fetchJson(`https://api.lolhuman.xyz/api/ipaddress/${text}?apikey=${global.apilol}`)          
@@ -3484,7 +3484,7 @@ case '12345ip': case '12345ipinfo': case '12345ipaddress':  {
 break
 //[MEME MENU]\\ With apikey lol human
 
-case '12345memeindo': {                
+case 'memeindo': {                
                 let buttons = [
                     {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
                 ]
@@ -3498,7 +3498,7 @@ case '12345memeindo': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-case '12345memeglobal': {                
+case 'memeglobal': {                
                 let buttons = [
                     {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
                 ]
@@ -3512,7 +3512,7 @@ case '12345memeglobal': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-case '12345darkjoke': {                
+case 'darkjoke': {                
                 let buttons = [
                     {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
                 ]
@@ -3526,19 +3526,19 @@ case '12345darkjoke': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-case '12345meme1': case '12345meme4': case '12345meme5':{          
+case 'meme1': case 'meme4': case 'meme5':{          
              if (!text) throw `*Masukan teks*\n _Contoh:_ ${prefix + command} Tahu bacem enak lhoo, jangan lupakan ini `             
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}&text=${text}` }, caption: `Meme maker ${command}` }, { quoted: m })
             }
           break
-case '12345meme2': case '12345meme7': case '12345meme8': {        
+case 'meme2': case 'meme7': case 'meme8': {        
              if (!text) throw `*Masukan teks1+teks2*\n _Contoh:_ ${prefix + command} Jumatan bisa+Jumatan dapet nasi kotak`
               tas = arg.split('+')[0]
               wah = arg.split('+')[1]
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}&text1=${tas}&text2=${wah}` }, caption: `Meme maker ${command}` }, { quoted: m })
             }
           break
-case '12345meme3': {          
+case 'meme3': {          
              if (!text) throw `*Masukan teks1+teks2+teks3*\n _Contoh:_ ${prefix + command} Aku lewat jalan ramai+Aku lewat jalan sepi+Aku lewat kuburan`
               tas = arg.split('+')[0]
               wah = arg.split('+')[1]
@@ -3546,7 +3546,7 @@ case '12345meme3': {
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/meme3?apikey=${global.apilol}&text1=${tas}&text2=${wah}&text3=${tri}` }, caption: `Meme maker ${command}` }, { quoted: m })
             }
           break
-case '12345meme6': {          
+case 'meme6': {          
              if (!text) throw `*Masukan teks1+teks2+teks3*\n _Contoh:_ ${prefix + command} Tadi mau ngapain+gk tau mo tidur+lu kan belom sholat Isya`
               tas = arg.split('+')[0]
               wah = arg.split('+')[1]
@@ -3554,22 +3554,22 @@ case '12345meme6': {
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/meme3?apikey=${global.apilol}&text1=${tas}&text2=${wah}&text3=${tri}` }, caption: `Meme maker 3` }, { quoted: m })
             }
           break
-case '12345kanna': {          
+case 'kanna': {          
              if (!text) throw `*Masukan teks*\n _Contoh:_ ${prefix + command} Tahu bacem enak lhoo, jangan lupakan ini `             
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/creator/kannagen?apikey=${global.apilol}&text=${text}` }, caption: `Meme maker ${command}` }, { quoted: m })
             }
           break
-case '12345mind': {          
+case 'mind': {          
              if (!text) throw `*Masukan teks*\n _Contoh:_ ${prefix + command} Sembako isinya sampah `             
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/creator/changemymind?apikey=${global.apilol}&text=${text}` }, caption: `Meme maker change my mind` }, { quoted: m })
             }
           break
-case '12345ohno': {          
+case 'ohno': {          
              if (!text) throw `*Masukan teks*\n _Contoh:_ ${prefix + command} Sembako isinya sampah `             
                 Pajrin.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/creator/changemymind?apikey=${global.apilol}&text=${text}` }, caption: `Meme maker oh no` }, { quoted: m })
             }
           break
-case '12345smeme': {
+case 'smeme': {
 	if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} teks1+teks2*\n_Contoh:_ ${prefix + command} Lihat itu+ada wibu berkeliaran`
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -3582,7 +3582,7 @@ case '12345smeme': {
                //   Pajrin.sendMessage(m.chat, { sticker: { url: api('zenz',`/memegen?apikey=${global.apilol}&texttop=${tas}&textbottom=${wah}&img=${anu}`) },caption: ` ${command} ${text}` }, { quoted: m })
   }
                            break
-case '12345memecreator': {
+case 'memecreator': {
 	if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} teks1+teks2*\n_Contoh:_ ${prefix + command} Lihat itu+ada wibu berkeliaran`
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -3596,7 +3596,7 @@ case '12345memecreator': {
   }
                            break
 //[STICKER MENU]\\ With apikey lol human
-            case '12345sticker': case '12345s': case '12345stickergif': case '12345sgif': {  
+            case 'sticker': case 's': case 'stickergif': case 'sgif': {  
             replay(mess.wait)
                     if (/image/.test(mime)) {
                 let media = await quoted.download()
@@ -3612,7 +3612,7 @@ case '12345memecreator': {
                 }
             }
             break
-case '12345harta': {
+case 'harta': {
 	if (!text) throw `*Masukan Teks !*\n_Contoh:_ ${prefix + command} xZrinva`
 	m.reply(mess.wait)
 		let anu = `https://api.lolhuman.xyz/api/hartatahta?apikey=${global.apilol}&text=${text}`
@@ -3622,7 +3622,7 @@ case '12345harta': {
                 await fs.unlinkSync(encmedia)
             }
 break           
-case '12345hartacustom': {
+case 'hartacustom': {
 	if (!text) throw `*Masukan Teks !*\n_Contoh:_ ${prefix + command} Fazrin
 Ganteng
 Banget
@@ -3635,76 +3635,76 @@ GK BOHONG !`
                 await fs.unlinkSync(encmedia)
             }
 break           
-case '12345patrick': {
+case 'patrick': {
 		let anu = `https://api.lolhuman.xyz/api/sticker/patrick?apikey=${global.apilol}`
 		    Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
 break           
-case '12345samongus':{
+case 'samongus':{
               let anu = `https://api.lolhuman.xyz/api/sticker/amongus?apikey=${global.apilol}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
   break       
-  case '12345gawrgura':{
+  case 'gawrgura':{
               let anu = `https://api.lolhuman.xyz/api/sticker/gawrgura?apikey=${global.apilol}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
   break       
-  case '12345bucinstick':{
+  case 'bucinstick':{
               let anu = `https://api.lolhuman.xyz/api/sticker/bucinstick?apikey=${global.apilol}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
   break       
-case '12345attp':{
+case 'attp':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/attp?apikey=${global.apilol}&text=${text}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
   break
-case '12345attp2':{
+case 'attp2':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/attp2?apikey=${global.apilol}&text=${text}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
   break
-case '12345ttp':{
+case 'ttp':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp?apikey=${global.apilol}&text=${text}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
-case '12345ttp2':{
+case 'ttp2':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp2?apikey=${global.apilol}&text=${text}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
-case '12345ttp3':{
+case 'ttp3':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp3?apikey=${global.apilol}&text=${text}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
-case '12345ttp4':{
+case 'ttp4':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp4?apikey=${global.apilol}&text=${text}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
-case '12345ttp5':{
+case 'ttp5':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp5?apikey=${global.apilol}&text=${text}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
-case '12345ttp6':{
+case 'ttp6':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp6?apikey=${global.apilol}&text=${text}`
               Pajrin.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
 //[convert MENU]\\ With apikey lol human
-case '12345topdf': {
+case 'topdf': {
 	if (!text) throw `*Kirim/reply Gambar dengan Caption*  ${prefix + command} judul pdf\n\n_Contoh:_ ${prefix + command} Tugas Biologi`
     m.reply(mess.wait)
  //  https://api.lolhuman.xyz/api/convert2pdf?apikey=fleyvin_soft&filename=LoLHuman.jpg&file=https://i.postimg.cc/CM34YRFb/photo-2021-02-05-10-13-39.jpg
@@ -3726,31 +3726,31 @@ case '12345topdf': {
             }
             break
 
- case '12345tohex': {
+ case 'tohex': {
         	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Aku suka sama kamu`
         	let anu = await fetchJson(`https://api.lolhuman.xyz/api/convert/strtohex?apikey=${global.apilol}&text=${text}`)
 reply(anu.result)
 }
 break
-case '12345dhex': {
+case 'dhex': {
         	if (!text) throw `*Masukan kode hex*\n_Contoh:_ ${prefix + command} 7375627320797420785a72696e7661`
         	let anu = await fetchJson(`https://api.lolhuman.xyz/api/convert/hextostr?apikey=${global.apilol}&hex=${text}`)
 reply(anu.result)
 }
 break
-case '12345tomorse': {
+case 'tomorse': {
         	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Aku suka sama kamu`
         	let anu = await fetchJson(`https://api.lolhuman.xyz/api/morse/encrypt?apikey=${global.apilol}&text=${text}`)
 reply(anu.result)
 }
 break
-case '12345dmorse': {
+case 'dmorse': {
         	if (!text) throw `*Masukan kode morse*\n_Contoh:_ ${prefix + command} -..- --.. .-. .. -. ...- .- `
         	let anu = await fetchJson(`https://api.lolhuman.xyz/api/morse/decrypt?apikey=${global.apilol}&text=${text}`)
 reply(anu.result)
 }
 break
-    case '12345tobinary': {
+    case 'tobinary': {
             if (!m.quoted) throw `Reply pesan teks dengan caption ${prefix + command}`
             let { eBinary } = require('./lib/binary')
             let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
@@ -3758,7 +3758,7 @@ break
             m.reply(eb)
         }
         break
-            case '12345dbinary': {
+            case 'dbinary': {
             if (!m.quoted) throw `Reply pesan teks binary dengan caption ${prefix + command}`
             let { dBinary } = require('./lib/binary')
             let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
@@ -3766,7 +3766,7 @@ break
             m.reply(db)
         }
         break
-            case '12345emojimix': {
+            case 'emojimix': {
 	        if (!text) throw `*Masukan emoji1+emoji2*\n_Contoh:_ ${prefix + command} ❤️+😁`
 		let [emoji1, emoji2] = text.split`+`
 		let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
@@ -3776,7 +3776,7 @@ break
 		}
 	    }
 	    break
-         case '12345tofoto': case '12345toimage': case '12345toimg': {
+         case 'tofoto': case 'toimage': case 'toimg': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `*balas stiker dengan caption*  ${prefix + command}`
                 replay(mess.wait)
@@ -3791,7 +3791,7 @@ break
                 })
             }
             break
-	        case '12345tomp4': case '12345tovideo': {
+	        case 'tomp4': case 'tovideo': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `*balas stiker dengan caption*  ${prefix + command}`
                 replay(mess.wait)
@@ -3802,7 +3802,7 @@ break
                 await fs.unlinkSync(media)
             }
             break
-            case '12345toaud': case '12345toaudio': {
+            case 'toaud': case 'toaudio': {
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `Send/Reply Video dengan Caption ${prefix + command}`
             if (!quoted) throw `Send/Reply Video dengan Caption ${prefix + command}`
             replay(mess.wait)
@@ -3812,7 +3812,7 @@ break
             Pajrin.sendMessage(m.chat, {audio: audio, mimetype: 'audio/mpeg'}, { quoted : m })
             }
             break
-            case '12345tomp3': {
+            case 'tomp3': {
             if (/document/.test(mime)) throw `Send/Reply Video/Audio untuk convert ke MP3 , dengan Caption ${prefix + command}`
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `Send/Reply Video/Audio untuk convert ke MP3 , dengan Caption ${prefix + command}`
             if (!quoted) throw `Send/Reply Video/Audio untuk convert ke MP3 , dengan Caption ${prefix + command}`
@@ -3823,7 +3823,7 @@ break
             Pajrin.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Converted By ${ `${global.botnma}`}.mp3`}, { quoted : m })
             }
             break
-            case '12345tovn': case '12345toptt': {
+            case 'tovn': case 'toptt': {
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `*Reply Video/Audio dengan Caption*  ${prefix + command}`
             if (!quoted) throw `*Reply Video/Audio dengan Caption*  ${prefix + command}`
             replay(mess.wait)
@@ -3833,7 +3833,7 @@ break
             Pajrin.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
             }
             break
-            case '12345togif': {
+            case 'togif': {
                 if (!quoted) throw 'Reply Sticker'
                 if (!/webp/.test(mime)) throw `balas stiker dengan caption *${prefix + command}*`
                 replay(mess.wait)
@@ -3845,7 +3845,7 @@ break
                 //reply(webpToMp4.result)
             }
             break
-	        case '12345tourl': {
+	        case 'tourl': {
 		//if (!quoted) throw 'Send/Reply Foto/Video/Audio/file dengan Caption ${prefix + command}'
                 replay(mess.wait)
 		let { UploadFileUgu, webp2mp4File, TelegraPh  } = require('./lib/uploader')
@@ -3860,7 +3860,7 @@ break
                 await fs.unlinkSync(media)
             }
             break
-            case '12345imagenobg': case '12345removebg': case '12345remove-bg': {
+            case 'imagenobg': case 'removebg': case 'remove-bg': {
 	    if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command}`
 	    if (!/image/.test(mime)) throw `Send/Reply Image dengan Caption ${prefix + command}`
 	    if (/webp/.test(mime)) throw `Send/Reply Image dengan Caption ${prefix + command}`
@@ -3886,7 +3886,7 @@ break
 	    }
 	    break
 //[ANIME MANGA MENU]\\ With apikey lol human
-case '12345animes': case '12345animesearch': {
+case 'animes': case 'animesearch': {
 	if (!text) throw `*Apa yang di cari?*\n_Contoh:_ ${prefix + command} naruto`
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/anime?apikey=${global.apilol}&query=${text}`)
 	Pajrin.sendMessage(m.chat, { image: { url: anu.result.coverImage.large }, caption: `*〔 Anime Search 〕*
@@ -3907,7 +3907,7 @@ case '12345animes': case '12345animesearch': {
 *⭔ Description :* ${anu.result.description}` }, { quoted: m })      
 }
 break
-case '12345mangas': case '12345mangasearch': {
+case 'mangas': case 'mangasearch': {
 	if (!text) throw `*Apa yang di cari?*\n_Contoh:_ ${prefix + command} gotoubun no hanayome`
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/manga?apikey=${global.apilol}&query=${text}`)
 	Pajrin.sendMessage(m.chat, { image: { url: anu.result.coverImage.large }, caption: `*〔 Manga Search 〕*
@@ -3926,7 +3926,7 @@ case '12345mangas': case '12345mangasearch': {
 *⭔ Description :* ${anu.result.description}` }, { quoted: m })      
 }
 break
-case '12345character': case '12345karakteranime': {
+case 'character': case 'karakteranime': {
 	if (!text) throw `*Apa yang di cari?*\n_Contoh:_ ${prefix + command} miku nakano`
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/character?apikey=${global.apilol}&query=${text}`)
 	Pajrin.sendMessage(m.chat, { image: { url: anu.result.image.large }, caption: `*〔 Character Search 〕*
@@ -3938,7 +3938,7 @@ case '12345character': case '12345karakteranime': {
 *⭔ Description :* ${anu.result.description}` }, { quoted: m })      
 }
 break
-case '12345animestory': case '12345storyanime': {                  
+case 'animestory': case 'storyanime': {                  
                 let anu = await fetchJson(`https://api.lolhuman.xyz/api/storynime?apikey=${global.apilol}`)               
               media = await getBuffer(anu.result)
   let buttons = [
@@ -3954,7 +3954,7 @@ case '12345animestory': case '12345storyanime': {
                Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })       
             }
           break
-          case '12345neonime': {
+          case 'neonime': {
           let anu = await fetchJson(`https://api.lolhuman.xyz/api/neonimelatest?apikey=${global.apilol}`)  
           let ini = anu.result
           let result = ini[Math.floor(Math.random() * ini.length)]
@@ -3978,7 +3978,7 @@ case '12345animestory': case '12345storyanime': {
                Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })       
             }
 break
-case '12345kusonimesearch': case '12345kusonimes': {
+case 'kusonimesearch': case 'kusonimes': {
 	if (!text) throw `*Apa yang di cari?*\n_Contoh:_ ${prefix + command} boruto`
           let anu = await fetchJson(`https://api.lolhuman.xyz/api/kusonimesearch2?apikey=${global.apilol}&query=${text}`)  
           let ini = anu.result
@@ -4000,7 +4000,7 @@ case '12345kusonimesearch': case '12345kusonimes': {
             }
 break
 //PHOTO EDITOR MENU]\\ With apikey lol human
-case '12345wasted': case '12345pencil': case '12345triggered': case '12345fisheye': case '12345skullmask': case '12345cartoon': case '12345invert': case '12345pixelate': case '12345flip': case '12345grayscale': case '12345roundimage': {
+case 'wasted': case 'pencil': case 'triggered': case 'fisheye': case 'skullmask': case 'cartoon': case 'invert': case 'pixelate': case 'flip': case 'grayscale': case 'roundimage': {
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await Pajrin.downloadAndSaveMediaMessage(quoted)
 	let anu = await TelegraPh(media)
@@ -4009,7 +4009,7 @@ case '12345wasted': case '12345pencil': case '12345triggered': case '12345fishey
                 Pajrin.sendMessage(m.chat, { image: { url: api('zenz',`/editor/${command}?apikey=${global.apilol}&img=${anu}`) }, caption: `*Photo Editor ${command}*\nBy ${global.botnma}` }, { quoted: m })      
                     }
 break
-case '12345affect': case '12345beautiful': case '12345facepalm': case '12345hitler': case '12345jail': case '12345jokeoverhead': case '12345rainbow': case '12345sepia': case '12345trash': case '12345wanted': {
+case 'affect': case 'beautiful': case 'facepalm': case 'hitler': case 'jail': case 'jokeoverhead': case 'rainbow': case 'sepia': case 'trash': case 'wanted': {
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await Pajrin.downloadAndSaveMediaMessage(quoted)
 	let anu = await TelegraPh(media)
@@ -4018,7 +4018,7 @@ case '12345affect': case '12345beautiful': case '12345facepalm': case '12345hitl
                 Pajrin.sendMessage(m.chat, { image: { url: api('zenz',`/creator1/${command}?apikey=${global.apilol}&img=${anu}`) }, caption: `*Photo Editor ${command}*\nBy ${global.botnma}` }, { quoted: m })      
                     }
 break
-case '123451977': case '12345aden': case '12345brannan': case '12345brooklyn': case '12345gingham': case '12345hudson': case '12345inkwell': case '12345earlybird': case '12345kelvin': case '12345larlk': case '12345lofi': case '12345maven': case '12345mayfair': case '12345moon': case '12345perpetua': case '12345nashville': case '12345reyes': case '12345rise': case '12345slumber': case '12345stinson': case '12345toaster': case '12345valencia': case '12345walden': case '12345willow': case '12345gingham': case '12345xpro2': {
+case '1977': case 'aden': case 'brannan': case 'brooklyn': case 'gingham': case 'hudson': case 'inkwell': case 'earlybird': case 'kelvin': case 'larlk': case 'lofi': case 'maven': case 'mayfair': case 'moon': case 'perpetua': case 'nashville': case 'reyes': case 'rise': case 'slumber': case 'stinson': case 'toaster': case 'valencia': case 'walden': case 'willow': case 'gingham': case 'xpro2': {
 let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await Pajrin.downloadAndSaveMediaMessage(quoted)
 	let anu = await TelegraPh(media)
@@ -4028,7 +4028,7 @@ let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 break
 
 //[News berita MENU]\\ With apikey lol human
-case '12345hoax': {
+case 'hoax': {
           let anu = await fetchJson(`https://api.lolhuman.xyz/api/turnbackhoax?apikey=${global.apilol}`)  
           let ini = anu.result
           let result = ini[Math.floor(Math.random() * ini.length)]   
@@ -4053,7 +4053,7 @@ case '12345hoax': {
                       Pajrin.send5ButImg(m.chat, txt, `Klik NEXT untuk hasil lainnya`, fatihgans, btn)
             }
 break
-case '12345kumparan': case '12345republika': case '12345liputan6': {
+case 'kumparan': case 'republika': case 'liputan6': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4075,7 +4075,7 @@ case '12345kumparan': case '12345republika': case '12345liputan6': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345newsinfo': {
+case 'newsinfo': {
           let anu = await fetchJson(`https://api.lolhuman.xyz/api/newsinfo?apikey=${global.apilol}`)  
           let ini = anu.result
           let result = ini[Math.floor(Math.random() * ini.length)]   
@@ -4100,7 +4100,7 @@ case '12345newsinfo': {
                       Pajrin.send5ButImg(m.chat, txt, `By ${result.author}`, fatihgans, btn)
             }
 break
-case '12345detiknews': {
+case 'detiknews': {
           let anu = await fetchJson(`https://api.lolhuman.xyz/api/detik?apikey=${global.apilol}`)  
           let ini = anu.result
           let result = ini[Math.floor(Math.random() * ini.length)]   
@@ -4123,7 +4123,7 @@ case '12345detiknews': {
                       Pajrin.send5ButImg(m.chat, txt, `${global.fake}`, fatihgans, btn)
             }
 break
-case '12345jalantikus': {
+case 'jalantikus': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4143,7 +4143,7 @@ case '12345jalantikus': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345cnnindonesia': {
+case 'cnnindonesia': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4162,7 +4162,7 @@ case '12345cnnindonesia': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345cnnnasional': {
+case 'cnnnasional': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/nasional?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4181,7 +4181,7 @@ case '12345cnnnasional': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345cnninternasional': {
+case 'cnninternasional': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/internasional?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4200,7 +4200,7 @@ case '12345cnninternasional': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345cnnekonomi': {
+case 'cnnekonomi': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/ekonomi?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4219,7 +4219,7 @@ case '12345cnnekonomi': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345cnnolahraga': {
+case 'cnnolahraga': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/olahraga?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4238,7 +4238,7 @@ case '12345cnnolahraga': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345cnnteknologi': {
+case 'cnnteknologi': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/teknologi?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4257,7 +4257,7 @@ case '12345cnnteknologi': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345cnnhiburan': {
+case 'cnnhiburan': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/hiburan?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4276,7 +4276,7 @@ case '12345cnnhiburan': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345cnnsocial': {
+case 'cnnsocial': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/social?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4299,7 +4299,7 @@ case '12345cnnsocial': {
 
 //Tools internet menu  ]\\ With apikey lol human
 //https://api.lolhuman.xyz/api/translate/auto/ps?apikey=fleyvin_soft&text=Good%20morning
-case '12345texttospeak': case '12345tekstospeak': case '12345tts': case '12345gtts': {
+case 'texttospeak': case 'tekstospeak': case 'tts': case 'gtts': {
 	if (!text) throw `*Masukan Teks*\n_Contoh:_ ${prefix + command} dasar anak tiktok suka pargoy di tempat umum`
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
@@ -4370,7 +4370,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-            case '12345tts2': {
+            case 'tts2': {
 	if (!text) throw `*Masukan KodeNegara+Teks*\n_Contoh:_ ${prefix + command} id+Dasar anak tiktok suka pargoy di tempat umum`
 	tas = arg.split('+')[0]
               wah = arg.split('+')[1]
@@ -4379,7 +4379,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
    Pajrin.sendMessage(m.chat, { audio: anu, mimetype: 'audio/mp4', ptt: true, quoted : m })
 }
               break
-              case '12345tst': case '12345translate': {
+              case 'tst': case 'translate': {
 	if (!m.quoted && !text) throw `*Masukan Teks*\n_Contoh:_ ${prefix + command} good morning`
 //if (!text) throw `*Masukan Teks*\n_Contoh:_ ${prefix + command} good morning`
 tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
@@ -4437,7 +4437,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-case '12345tst2': {
+case 'tst2': {
 	if (!text) throw `*Masukan KodeNegara+Teks*\n_Contoh:_ ${prefix + command} id+good morning`
 	tas = arg.split('+')[0]
               wah = arg.split('+')[1]
@@ -4449,7 +4449,7 @@ m.reply(`*〔 Translate From: ${anu.result.from},To: ${anu.result.to} 〕*
 *🌹Pengucapan:* ${anu.result.pronunciation}`)
 }
 break
-case '12345ocr': {
+case 'ocr': {
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command}`
 	m.reply(mess.wait)
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -4459,7 +4459,7 @@ case '12345ocr': {
 	replay(`${ini.result}`)
 	}
 	break
-case '12345shortlink': {
+case 'shortlink': {
 	if (!text) throw `*Masukan URL yang mau di short*\n_Contoh:_ ${prefix + command} https://play.google.com/store/apps/dev?id=8953653728108379529`
  	let anu = await fetchJson(api('zenz',`/shortlink?apikey=${global.apilol}&url=${text}`))
      let buttons = [
@@ -4476,7 +4476,7 @@ case '12345shortlink': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345shortlink2': {
+case 'shortlink2': {
 	if (!text) throw `*Masukan URL yang mau di short*\n_Contoh:_ ${prefix + command} https://play.google.com/store/apps/dev?id=8953653728108379529`
  	let anu = await fetchJson(api('zenz',`/shortlink2?apikey=${global.apilol}&url=${text}`))
      let buttons = [
@@ -4493,7 +4493,7 @@ case '12345shortlink2': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345shortlink3': {
+case 'shortlink3': {
 if (!text) throw `*Masukan URL yang mau di short*\n_Contoh:_ ${prefix + command} https://play.google.com/store/apps/dev?id=8953653728108379529`
  	let anu = await fetchJson(api('zenz',`/shortlink3?apikey=${global.apilol}&url=${text}`))
      let buttons = [
@@ -4510,7 +4510,7 @@ if (!text) throw `*Masukan URL yang mau di short*\n_Contoh:_ ${prefix + command}
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case '12345shortlink4': {
+case 'shortlink4': {
 	if (!text) throw `*Masukan URL yang mau di short*\n_Contoh:_ ${prefix + command} https://play.google.com/store/apps/dev?id=8953653728108379529`
  	let anu = await fetchJson(api('zenz',`/shortlink4?apikey=${global.apilol}&url=${text}`))
      let buttons = [
@@ -4527,7 +4527,7 @@ case '12345shortlink4': {
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case '12345ssweb': case '12345ssweb1': {
+            case 'ssweb': case 'ssweb1': {
                 if (!text) throw `*Masukan URL web !*\n_Contoh :_ ${prefix + command} https://youtube.com/c/xZrinva`                 
               m.reply(mess.wait)
                let buttons = [
@@ -4543,7 +4543,7 @@ case '12345shortlink4': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
 break
-case '12345sswebfull': case '12345ssweb2': {
+case 'sswebfull': case 'ssweb2': {
                 if (!text) throw `*Masukan URL web !*\n_Contoh :_ ${prefix + command} https://indonesia.go.id`                 
                 m.reply(mess.wait)
                let buttons = [
@@ -4559,14 +4559,14 @@ case '12345sswebfull': case '12345ssweb2': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
 break
-            case '12345resum': case '12345reroomer': {
+            case 'resum': case 'reroomer': {
             	if (!text) throw `*Masukan teks untuk di resum !*\n_Contoh :_ ${prefix + command} Sebuah kaca yang dipasang di tembok belakang kelasnya tiba-tiba bergerak sendiri.\nDream - Menyanyi memang menjadi hal yang menyenangkan saat sedang kesepian. Begitu pula yang dilakukan oleh gadis berhijab dalam video berikut ini.\nGadis ini datang lebih awal ke sekolah dari murid lainnya. Melihat kondisi kelas yang masih sepi, gadis tersebut lantas menyalakan kamera dan merekam aksinya yang tengah bernyanyi.\nIde Seru Buat Lebaran! Tiktoker Bagi-Bagi Uang THR Sesuai Filter TikTok, Si Nenek Ketiban Rezeki Nomplok\n\nDengan suara merdunya, sang gadis menyanyikan lagu Agnes Monica berjudul Karena Ku Sanggup. Hingga akhirnya sebuah insiden mengejutkan terjadi. Terang saja gadis yang berada dalam video itu terkejut.\nMeski demikian, belum bisa dipastikan apakah kaca itu benar-benar bergerak sendiri atau video ini hanya rekayasa belaka. `                 
          m.reply(mess.wait)
   let anu = await fetchJson(`https://api.lolhuman.xyz/api/resoomer?apikey=${global.apilol}&text=${text}`)
  replay(anu.result)
  }
  break
-case '12345spamsms': case '12345smsspam': {
+case 'spamsms': case 'smsspam': {
             	if (!text) throw `*Masukan nomor target !*\n_Contoh :_ ${prefix + command} 6283110011351`                 
          m.reply(mess.wait)
   let anu = await fetchJson(`https://api.lolhuman.xyz/api/sms/spam1?apikey=${global.apilol}&nomor=${text}`)
@@ -4580,13 +4580,13 @@ let aynu = await fetchJson(`https://api.lolhuman.xyz/api/sms/spam8?apikey=${glob
  reply(`Sukses spam sms ke nomor ${text}`)
  }
  break
-case '12345qrcode': case '12345toqrcode': {
+case 'qrcode': case 'toqrcode': {
 	if (!text) throw `*Masukan Teks !*\n_Contoh :_ ${prefix + command} Aku suka sama kamu`         
 m.reply(mess.wait)        
 	Pajrin.sendMessage(m.chat, { image: { url: api('zenz',`/qrcode?apikey=${global.apilol}&text=${text}`) }, caption: `*QR Code From Teks : ${text}*` }, { quoted: m })      
 	}
 break
-case '12345readqr': case '12345readqrcode': {
+case 'readqr': case 'readqrcode': {
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command}`
 	m.reply(mess.wait)
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -4596,7 +4596,7 @@ case '12345readqr': case '12345readqrcode': {
 replay(ini.result)
                   }
                            break
-case '12345cekumur': case '12345agedetect': {
+case 'cekumur': case 'agedetect': {
 	if (!quoted) throw `Send/Reply foto wajah dengan Caption ${prefix + command}`
 	m.reply(mess.wait)
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -4606,7 +4606,7 @@ case '12345cekumur': case '12345agedetect': {
 replay(`Orang tersebut kira-kira berumur  ${ini.result} Tahun`)
                   }
                            break
-case '12345cekwajah': case '12345facedetec': {
+case 'cekwajah': case 'facedetec': {
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command}`
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await Pajrin.downloadAndSaveMediaMessage(quoted)
@@ -4615,25 +4615,25 @@ case '12345cekwajah': case '12345facedetec': {
                 Pajrin.sendMessage(m.chat, { image: { url: api('zenz',`/facedetect?apikey=${global.apilol}&img=${anu}`) }, caption: `Wajah detektor` }, { quoted: m })      
                 }
                 break
-            case '123454l4y': case '12345alay': {
+            case '4l4y': case 'alay': {
             	if (!text) throw `*Masukan Teks !*\n_Contoh :_ ${prefix + command} dasar anak tiktok suka joget pargoy di tempat umum`
 anu = await fetchJson(`https://api.lolhuman.xyz/api/alay?apikey=${global.apilol}&text=${text}`)
 m.reply(anu.result)
 }
 break
-case '12345besarkecil': case '12345kecilbesar': {
+case 'besarkecil': case 'kecilbesar': {
             	if (!text) throw `*Masukan Teks !*\n_Contoh :_ ${prefix + command} dasar anak tiktok suka joget pargoy di tempat umum`
 anu = await fetchJson(`https://api.lolhuman.xyz/api/upperlower?apikey=${global.apilol}&text=${text}`)
 m.reply(anu.result)
 }
 break
-case '12345bahasapurba': case '12345purba': {
+case 'bahasapurba': case 'purba': {
             	if (!text) throw `*Masukan Teks !*\n_Contoh :_ ${prefix + command} dasar anak tiktok suka joget pargoy di tempat umum`
 anu = await fetchJson(`https://api.lolhuman.xyz/api/bahasapurba?apikey=${global.apilol}&text=${text}`)
 m.reply(anu.result)
 }
 break
-case '12345randombahasa': case '12345bahasarandom': {
+case 'randombahasa': case 'bahasarandom': {
             	if (!text) throw `*Masukan Teks !*\n_Contoh :_ ${prefix + command} dasar anak tiktok suka joget pargoy di tempat umum`
 anu = await fetchJson(`https://api.lolhuman.xyz/api/randombahasa?apikey=${global.apilol}&text=${text}`)
 m.reply(anu.result)
@@ -4643,7 +4643,7 @@ break
 
 
 //[DOWNLOAD MENU]\\ WITH Apikey Lol-Human, credit (Fleyvin Software)
-case '12345mediafire': case '12345mdf': {
+case 'mediafire': case 'mdf': {
                    if (!text) throw `*Masukan Link Mediafire*\n_Contoh :_ ${prefix + command} https://www.mediafire.com/file/nf8gcek9mkvdlek/20220403_152001.png/file`
              	let anu = await fetchJson(api('zenz', '/mediafire', { url: text }, 'apikey'))
              asu = anu.result.link
@@ -4673,7 +4673,7 @@ case '12345mediafire': case '12345mdf': {
             }
           }
           break
-case '12345sfile': case '12345sfilemobi': {
+case 'sfile': case 'sfilemobi': {
                    if (!text) throw `*Masukan Link SfileMobi*\n_Contoh :_ ${prefix + command} https://sfile.mobi/3Ca9II8GKsP`
                    replay(mess.wait)
              	let anu = await fetchJson(api('zenz', '/sfile', { url: text }, 'apikey'))
@@ -4682,7 +4682,7 @@ case '12345sfile': case '12345sfilemobi': {
 		Pajrin.sendMessage(m.chat, {document: {url: asu }, mimetype: 'application/zip' , fileName: nama }, {quoted:m})
             }
           break
-	                  case '12345tt': case '12345ttdownload': case '12345ttdl': case '12345tiktok': case '12345tiktoknowm': {
+	                  case 'tt': case 'ttdownload': case 'ttdl': case 'tiktok': case 'tiktoknowm': {
                   if (!text) throw `*Masukan Link TikTok*\n_Contoh :_ ${prefix + command} https://vt.tiktok.com/ZSdAvGKjn/`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/tiktok3', { url: text }, 'apikey'))
@@ -4699,7 +4699,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-                 case '12345ttmp3': case '12345tiktokmp3': case '12345tiktokaudio': {
+                 case 'ttmp3': case 'tiktokmp3': case 'tiktokaudio': {
                 if (!text) throw `*Masukan Link TikTok*\n_Contoh :_ ${prefix + command} https://vt.tiktok.com/ZSdAvGKjn/`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/tiktok3', { url: text }, 'apikey'))
@@ -4719,7 +4719,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendMessage(m.chat, { audio: cnvrt, mimetype: 'audio/mpeg'}, { quoted: m })
             }
             break
-                      case '12345igtv': case '12345instagramtv': case '12345igpost': case '12345igmp4': case '12345igdl': case '12345igvideo': case '12345instagramvideo': case '12345instagrammp4': case '12345instagram': {
+                      case 'igtv': case 'instagramtv': case 'igpost': case 'igmp4': case 'igdl': case 'igvideo': case 'instagramvideo': case 'instagrammp4': case 'instagram': {
                 if (!text) throw `*Masukan Link Instagram tv/post*\n_Contoh :_ ${prefix + command} https://www.instagram.com/tv/Ccn0eqaPxGx/?igshid=YmMyMTA2M2Y=`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/instagram2', { url: text }, 'apikey'))
@@ -4742,7 +4742,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-          case '12345instagrammp3':  case '12345igtvmp3': case '12345instagramtvmp3': {
+          case 'instagrammp3':  case 'igtvmp3': case 'instagramtvmp3': {
                if (!text) throw `*Masukan Link Instagram tv/post*\n_Contoh :_ ${prefix + command} https://www.instagram.com/tv/Ccn0eqaPxGx/?igshid=YmMyMTA2M2Y=`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/instagram2', { url: text }, 'apikey'))
@@ -4768,7 +4768,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendMessage(m.chat, { audio: cnvrt, mimetype: 'audio/mpeg'}, { quoted: m })
             }
             break
-            case '12345igreel': case '12345instagramreels': case '12345instagramreel': case '12345igreels': {
+            case 'igreel': case 'instagramreels': case 'instagramreel': case 'igreels': {
                 if (!text) throw `*Masukan Link Instagram Reels*\n_Contoh :_ ${prefix + command} https://www.instagram.com/reel/CQffYpUJK5d/?igshid=YmMyMTA2M2Y=`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/instagramreel', { url: text }, 'apikey'))
@@ -4791,7 +4791,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-          case '12345igreelmp3': case '12345igreelsmp3': {
+          case 'igreelmp3': case 'igreelsmp3': {
                if (!text) throw `*Masukan Link Instagram Reels*\n_Contoh :_ ${prefix + command} https://www.instagram.com/reel/CQffYpUJK5d/?igshid=YmMyMTA2M2Y=`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/instagramreel', { url: text }, 'apikey'))
@@ -4817,7 +4817,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendMessage(m.chat, { audio: cnvrt, mimetype: 'audio/mpeg'}, { quoted: m })
             }
             break
-            case '12345twittermp4': case '12345twittervideo': case '12345tw': case '12345twmp4': case '12345twvideo': {
+            case 'twittermp4': case 'twittervideo': case 'tw': case 'twmp4': case 'twvideo': {
                 if (!text) throw `*Masukan Link Twitter Video*\n_Contoh :_ ${prefix + command} https://twitter.com/vitaminreceh/status/1330465270595543041?t=QXZcrz2cFHV9e54Ij3lYIQ&s=19`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/twitter', { url: text }, 'apikey'))
@@ -4839,7 +4839,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-          case '12345twitterimage': case '12345twimage': case '12345twitterfoto': case '12345twfoto': case '12345teitterjpg': {
+          case 'twitterimage': case 'twimage': case 'twitterfoto': case 'twfoto': case 'teitterjpg': {
                 if (!text) throw `*Masukan Link Twitter Image*\n_Contoh :_ ${prefix + command} https://twitter.com/caci_ann/status/1514256565661954050?t=07p_yly64BkdOMmw_UzX6A&s=19`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/twitterimage', { url: text }, 'apikey'))
@@ -4863,21 +4863,21 @@ case '12345sfile': case '12345sfilemobi': {
             }
           break
 //Primbon Menu  ]\\ 
-               case '12345nomerhoki': case '12345nomorhoki': {
+               case 'nomerhoki': case 'nomorhoki': {
                 if (!Number(text)) throw `*Masukan Nomor !*\n_Contoh:_ ${prefix + command} ${global.pemilik}`
                 let anu = await primbon.nomer_hoki(Number(text))
                 if (anu.status == false) return m.reply(anu.message)
                 Pajrin.sendText(m.chat, `⭔ *Nomor HP :* ${anu.message.nomer_hp}\n⭔ *Angka Shuzi :* ${anu.message.angka_shuzi}\n⭔ *Energi Positif :*\n- Kekayaan : ${anu.message.energi_positif.kekayaan}\n- Kesehatan : ${anu.message.energi_positif.kesehatan}\n- Cinta : ${anu.message.energi_positif.cinta}\n- Kestabilan : ${anu.message.energi_positif.kestabilan}\n- Persentase : ${anu.message.energi_positif.persentase}\n⭔ *Energi Negatif :*\n- Perselisihan : ${anu.message.energi_negatif.perselisihan}\n- Kehilangan : ${anu.message.energi_negatif.kehilangan}\n- Malapetaka : ${anu.message.energi_negatif.malapetaka}\n- Kehancuran : ${anu.message.energi_negatif.kehancuran}\n- Persentase : ${anu.message.energi_negatif.persentase}`, m)
             }
             break
-            case '12345artimimpi': case '12345tafsirmimpi': {
+            case 'artimimpi': case 'tafsirmimpi': {
                 if (!text) throw `*Masukan Mimpimu !*\n_Contoh:_ ${prefix + command} belanja`
                 let anu = await primbon.tafsir_mimpi(text)
                 if (anu.status == false) return m.reply(anu.message)
                 Pajrin.sendText(m.chat, `⭔ *Mimpi :* ${anu.message.mimpi}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Solusi :* ${anu.message.solusi}`, m)
             }
             break
-            case '12345ramalanjodoh': case '12345ramaljodoh': {
+            case 'ramalanjodoh': case 'ramaljodoh': {
                 if (!text) throw `*Masukan nama1,tanggal,bulan,tahun lahir,nama2,tanggal,bulan,tahun lahir*\n_Contoh:_ ${prefix + command} Fazrin, 05, 09, 2005, Nissa, 29, 3, 2006`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -4885,7 +4885,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345ramalanjodohbali': case '12345ramaljodohbali': {
+            case 'ramalanjodohbali': case 'ramaljodohbali': {
                 if (!text) throw `*Masukan nama1,tanggal,bulan,tahun lahir,nama2,tanggal,bulan,tahun lahir*\n_Contoh:_  Fazrin, 05, 09, 2005, Nissa, 14, 4, 2006`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh_bali(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -4893,7 +4893,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345suamiistri': {
+            case 'suamiistri': {
                 if (!text) throw `*Masukan nama1,tanggal,bulan,tahun lahir,nama2,tanggal,bulan,tahun lahir*\n_Contoh:_  Fazrin, 05, 09, 2005, Nissa, 14, 4, 2006`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.suami_istri(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -4901,7 +4901,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Nama Suami :* ${anu.message.suami.nama}\n⭔ *Lahir Suami :* ${anu.message.suami.tgl_lahir}\n⭔ *Nama Istri :* ${anu.message.istri.nama}\n⭔ *Lahir Istri :* ${anu.message.istri.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345ramalancinta': case '12345ramalcinta': {
+            case 'ramalancinta': case 'ramalcinta': {
                 if (!text) throw `*Masukan nama1,tanggal,bulan,tahun lahir,nama2,tanggal,bulan,tahun lahir*\n_Contoh:_  Fazrin, 05, 09, 2005, Nissa, 14, 4, 2006`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_cinta(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -4909,14 +4909,14 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Sisi Positif :* ${anu.message.sisi_positif}\n⭔ *Sisi Negatif :* ${anu.message.sisi_negatif}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345artinama': {
+            case 'artinama': {
                 if (!text) throw `*Masukan nama !*\n_Contoh:_ ${prefix + command} Fazrin Mauza`
                 let anu = await primbon.arti_nama(text)
                 if (anu.status == false) return m.reply(anu.message)
                 Pajrin.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345kecocokannama': case '12345cocoknama': {
+            case 'kecocokannama': case 'cocoknama': {
                 if (!text) throw `*Masukam nama,tanggal,bulan,tahun lahir*\n_Contoh:_ ${prefix + command} Fazrin, 05, 09, 2005`
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.kecocokan_nama(nama, tgl, bln, thn)
@@ -4924,7 +4924,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Life Path :* ${anu.message.life_path}\n⭔ *Destiny :* ${anu.message.destiny}\n⭔ *Destiny Desire :* ${anu.message.destiny_desire}\n⭔ *Personality :* ${anu.message.personality}\n⭔ *Persentase :* ${anu.message.persentase_kecocokan}`, m)
             }
             break
-            case '12345kecocokanpasangan': case '12345cocokpasangan': case '12345pasangan': {
+            case 'kecocokanpasangan': case 'cocokpasangan': case 'pasangan': {
                 if (!text) throw `Example : ${prefix + command} Fazrin|Novia`
                 let [nama1, nama2] = text.split`|`
                 let anu = await primbon.kecocokan_nama_pasangan(nama1, nama2)
@@ -4932,7 +4932,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendImage(m.chat,  anu.message.gambar, `⭔ *Nama Anda :* ${anu.message.nama_anda}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan}\n⭔ *Sisi Positif :* ${anu.message.sisi_positif}\n⭔ *Sisi Negatif :* ${anu.message.sisi_negatif}`, m)
             }
             break
-            case '12345jadianpernikahan': case '12345jadiannikah': {
+            case 'jadianpernikahan': case 'jadiannikah': {
                 if (!text) throw `*Masukan tanggal jadian nikah!*\n_Contoh:_  ${prefix + command} 6,12,2022`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.tanggal_jadian_pernikahan(tgl, bln, thn)
@@ -4940,7 +4940,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Tanggal Pernikahan :* ${anu.message.tanggal}\n⭔ *karakteristik :* ${anu.message.karakteristik}`, m)
             }
             break
-            case '12345sifatusaha': {
+            case 'sifatusaha': {
                 if (!text)throw `*Masukan tanggal usaha berdiri!*\n_Contoh:_ ${prefix+ command} 28, 12, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn)
@@ -4948,7 +4948,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Usaha :* ${anu.message.usaha}`, m)
             }
             break
-            case '12345rejeki': case '12345rezeki': {
+            case 'rejeki': case 'rezeki': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir !*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rejeki_hoki_weton(tgl, bln, thn)
@@ -4956,7 +4956,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Rezeki :* ${anu.message.rejeki}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345pekerjaan': case '12345kerja': {
+            case 'pekerjaan': case 'kerja': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir !*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.pekerjaan_weton_lahir(tgl, bln, thn)
@@ -4964,7 +4964,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Pekerjaan :* ${anu.message.pekerjaan}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345ramalannasib': case '12345ramalnasib': case '12345nasib': {
+            case 'ramalannasib': case 'ramalnasib': case 'nasib': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir !*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.ramalan_nasib(tgl, bln, thn)
@@ -4972,7 +4972,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Analisa :* ${anu.message.analisa}\n⭔ *Angka Akar :* ${anu.message.angka_akar}\n⭔ *Sifat :* ${anu.message.sifat}\n⭔ *Elemen :* ${anu.message.elemen}\n⭔ *Angka Keberuntungan :* ${anu.message.angka_keberuntungan}`, m)
             }
             break
-            case '12345potensipenyakit': case '12345penyakit': {
+            case 'potensipenyakit': case 'penyakit': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir !*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.cek_potensi_penyakit(tgl, bln, thn)
@@ -4980,7 +4980,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Analisa :* ${anu.message.analisa}\n⭔ *Sektor :* ${anu.message.sektor}\n⭔ *Elemen :* ${anu.message.elemen}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345artitarot': case '12345tarot': {
+            case 'artitarot': case 'tarot': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir !*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.arti_kartu_tarot(tgl, bln, thn)
@@ -4988,7 +4988,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendImage(m.chat, anu.message.image, `⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Simbol Tarot :* ${anu.message.simbol_tarot}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345fengshui': {
+            case 'fengshui': {
                 if (!text) throw `*Masukan nama,gender,tahun lahir*\n_Contoh:_ ${prefix + command} Fazrin,1,2005\n\n_Note : Gender : 1 untuk laki-laki & 2 untuk perempuan_`
                 let [nama, gender, tahun] = text.split`,`
                 let anu = await primbon.perhitungan_feng_shui(nama, gender, tahun)
@@ -4996,7 +4996,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tahun_lahir}\n⭔ *Gender :* ${anu.message.jenis_kelamin}\n⭔ *Angka Kua :* ${anu.message.angka_kua}\n⭔ *Kelompok :* ${anu.message.kelompok}\n⭔ *Karakter :* ${anu.message.karakter}\n⭔ *Sektor Baik :* ${anu.message.sektor_baik}\n⭔ *Sektor Buruk :* ${anu.message.sektor_buruk}`, m)
             }
             break
-            case '12345haribaik': {
+            case 'haribaik': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun*\n_Contoh:_ ${prefix + command} 5, 9, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.petung_hari_baik(tgl, bln, thn)
@@ -5004,7 +5004,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Kala Tinantang :* ${anu.message.kala_tinantang}\n⭔ *Info :* ${anu.message.info}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345harisangar': case '12345taliwangke': {
+            case 'harisangar': case 'taliwangke': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun*\n_Contoh:_ ${prefix + command} 5, 9, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.hari_sangar_taliwangke(tgl, bln, thn)
@@ -5012,7 +5012,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Info :* ${anu.message.info}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345harinaas': case '12345harisial': {
+            case 'harinaas': case 'harisial': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun*\n_Contoh:_ ${prefix + command} 5, 9, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_hari_naas(tgl, bln, thn)
@@ -5020,7 +5020,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *Tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hari Naas :* ${anu.message.hari_naas}\n⭔ *Info :* ${anu.message.catatan}\n⭔ *Catatan :* ${anu.message.info}`, m)
             }
             break
-            case '12345nagahari': case '12345harinaga': {
+            case 'nagahari': case 'harinaga': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun*\n_Contoh:_ ${prefix + command} 5, 9, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rahasia_naga_hari(tgl, bln, thn)
@@ -5028,7 +5028,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *Tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Arah Naga Hari :* ${anu.message.arah_naga_hari}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345arahrejeki': case '12345arahrezeki': {
+            case 'arahrejeki': case 'arahrezeki': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun*\n_Contoh:_ ${prefix + command} 5, 9, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_arah_rejeki(tgl, bln, thn)
@@ -5036,7 +5036,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Arah Rezeki :* ${anu.message.arah_rejeki}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345peruntungan': {
+            case 'peruntungan': {
                 if (!text) throw `*Masukan nama,tanggal,bulan,tahun lahir,untuk tahun*\n_Contoh:_ ${prefix + command} Fazrin,5, 9, 2005,2022`
                 let [nama, tgl, bln, thn, untuk] = text.split`,`
                 let anu = await primbon.ramalan_peruntungan(nama, tgl, bln, thn, untuk)
@@ -5044,7 +5044,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Peruntungan Tahun :* ${anu.message.peruntungan_tahun}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345weton': case '12345wetonjawa': {
+            case 'weton': case 'wetonjawa': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.weton_jawa(tgl, bln, thn)
@@ -5052,7 +5052,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Tanggal :* ${anu.message.tanggal}\n⭔ *Jumlah Neptu :* ${anu.message.jumlah_neptu}\n⭔ *Watak Hari :* ${anu.message.watak_hari}\n⭔ *Naga Hari :* ${anu.message.naga_hari}\n⭔ *Jam Baik :* ${anu.message.jam_baik}\n⭔ *Watak Kelahiran :* ${anu.message.watak_kelahiran}`, m)
             }
             break
-            case '12345sifat': case '12345karakter': {
+            case 'sifat': case 'karakter': {
                 if (!text) throw `*Masukan nama,tanggal,bulan,tahun lahir*\n_Contoh:_ ${prefix + command} Fazrin,5, 9, 2005`
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_karakter_tanggal_lahir(nama, tgl, bln, thn)
@@ -5060,7 +5060,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Garis Hidup :* ${anu.message.garis_hidup}`, m)
             }
             break
-            case '12345keberuntungan': {
+            case 'keberuntungan': {
                 if (!text) throw `*Masukan nama,tanggal,bulan,tahun lahir*\n_Contoh:_ ${prefix + command} Fazrin,5, 9, 2005`
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.potensi_keberuntungan(nama, tgl, bln, thn)
@@ -5068,7 +5068,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}`, m)
             }
             break
-            case '12345memancing': {
+            case 'memancing': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun !*\n_Contoh:_ ${prefix + command} 5, 5, 2022`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_memancing_ikan(tgl, bln, thn)
@@ -5076,7 +5076,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Tanggal :* ${anu.message.tgl_memancing}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case '12345masasubur': {
+            case 'masasubur': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun pertama menstruasi,siklus!*\n_Contoh:_ ${prefix + command} 5, 5, 2022,28\n\nNote : ${prefix + command} hari pertama menstruasi, siklus`
                 let [tgl, bln, thn, siklus] = text.split`,`
                 let anu = await primbon.masa_subur(tgl, bln, thn, siklus)
@@ -5084,7 +5084,7 @@ case '12345sfile': case '12345sfilemobi': {
                 Pajrin.sendText(m.chat, `⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break        
-case '12345zodiak': case '12345zodiac': {
+case 'zodiak': case 'zodiac': {
                 if (!text) throw `*Masukan tahun bulan tanggal*\n_Contoh :_ ${prefix+ command} 2005 09 05`
                 let zodiak = [
                     ["capricorn", new Date(1970, 0, 1)],
@@ -5120,7 +5120,7 @@ case '12345zodiak': case '12345zodiac': {
             }
             break
 
-            case '12345umma': case '12345ummadl': {
+            case 'umma': case 'ummadl': {
 	        if (!text) throw `Example : ${prefix + command} https://umma.id/channel/video/post/gus-arafat-sumber-kecewa-84464612933698`
                 let { umma } = require('./lib) scraper')
 		let anu = await umma(isUrl(text)[0])
@@ -5151,7 +5151,7 @@ To download media, please click one of the buttons below or enter the ytmp3/ytmp
 		}
 	    }
 	    break
-        case '12345ringtone': {
+        case 'ringtone': {
 		if (!text) throw `_Contoh :_ ${prefix + command} black rover`
         let { ringtone } = require('./lib/scraper')
 		let anu = await ringtone(text)
@@ -5160,11 +5160,11 @@ To download media, please click one of the buttons below or enter the ytmp3/ytmp
 	    }
 	    break
 		
-/*case '12345alkitab':  if(!text) throw `Masukan Search Yang Anda Cari`
+/*case 'alkitab':  if(!text) throw `Masukan Search Yang Anda Cari`
 epep = await.fetchJson(`https://melcanz.com/alkitabsearch?q=${text}&apikey=melcantik`)
 break*/
 
-		   case '12345bass': case '12345blown': case '12345deep': case '12345earrape': case '12345fast': case '12345fat': case '12345nightcore': case '12345reverse': case '12345robot': case '12345slow': case '12345smooth': case '12345squirrel':
+		   case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat': case 'nightcore': case 'reverse': case 'robot': case 'slow': case 'smooth': case 'squirrel':
                 try {
                 let set
                 if (/bass/.test(command)) set = '-af equalizer=f=54:width_type=o:width=2:g=20'
@@ -5195,7 +5195,7 @@ break*/
                 reply(e)
                 }
                 break
-case '12345clearall':
+case 'clearall':
             // if (!isOwner) return  reply(mess.only.owner)
              anu = await Pajrin.chats.all()
              Pajrin.setMaxListeners(25)
@@ -5204,7 +5204,7 @@ case '12345clearall':
 }
              reply('Sukses delete all chat :)')
              break
-            case '12345setcmd': {
+            case 'setcmd': {
                 if (!m.quoted) throw `*Reply sticker/image dengan caption* ${prefix + command} ${prefix}command nya\n\n_Contoh:_ ${prefix + comnand} ${prefix}menu`
                 if (!m.quoted.fileSha256) throw 'SHA256 Hash Missing'
                 if (!text) throw `*Untuk Command Apa?*\n_Contoh:_ ${prefix}menu`
@@ -5220,7 +5220,7 @@ case '12345clearall':
                 reply(`Done!`)
             }
             break
-            case '12345delcmd': {
+            case 'delcmd': {
             	if (!m.quoted) throw `Reply sticker/image yang menjadi key cmd,untuk di hapus dari database cmd`
                 let hash = m.quoted.fileSha256.toString('base64')
                 if (!hash) throw `No hashes`
@@ -5229,7 +5229,7 @@ case '12345clearall':
                 reply(`Done!`)
             }
             break
-            case '12345listcmd': {
+            case 'listcmd': {
                 let teks = `
 *Hash List*
 Info: *bold* hash is locked
@@ -5238,7 +5238,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 Pajrin.sendText(m.chat, teks, m, { mentions: Object.values(global.db.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })
             }
             break
-            case '12345lockcmd': {
+            case 'lockcmd': {
                 if (!isCreator) throw mess.owner
                 if (!m.quoted) throw 'Reply Message!'
                 if (!m.quoted.fileSha256) throw 'SHA256 Hash Missing'
@@ -5248,7 +5248,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 reply('Done!')
             }
             break
-            case '12345addmsg': {
+            case 'addmsg': {
                 if (!m.quoted) throw 'Reply Pesan Untuk Disimpan Dalam Database'
                 if (!text) throw `*Masukan Teks untuk kata kunci pesan!*\n_Contoh:_ ${prefix + command} wow`
                 let msgs = global.db.database
@@ -5261,21 +5261,21 @@ Akses dengan ${prefix}getmsg ${text}
 Lihat list pesan dengan ${prefix}listmsg`)
             }
             break
-            case '12345getmsg': {
+            case 'getmsg': {
                 if (!text) throw `*Masukan key message!*\n Lihat list msg dengan ${prefix}listmsg`
                 let msgs = global.db.database
                 if (!(text.toLowerCase() in msgs)) throw `'${text}' not registered in message list`
                 Pajrin.copyNForward(m.chat, msgs[text.toLowerCase()], true)
             }
             break
-case '12345nuklir': {
+case 'nuklir': {
               if (!text) throw `Example : ${prefix + command} msg name\n\nView message list with ${prefix}listmsg`
                 let msgs = global.db.database
                if (!(text.toLowerCase() in msgs)) throw `'${text}' not registered in message list`
                 Pajrin.copyNForward(m.chat, msgs[text.toLowerCase()], true)
             }
             break
-            case '12345listmsg': {
+            case 'listmsg': {
                 let msgs = JSON.parse(fs.readFileSync('./src/database.json'))
 	        let seplit = Object.entries(global.db.database).map(([nama, isi]) => { return { nama, ...isi } })
 		let teks = '「 LIST DATABASE 」\n\n'
@@ -5285,7 +5285,7 @@ case '12345nuklir': {
 	        reply(teks)
 	    }
 	    break
-            case '12345delmsg': case '12345deletemsg': {
+            case 'delmsg': case 'deletemsg': {
             	if (!text) throw `*Masukan key message yang mau di hapus!*\n Lihat list msg dengan ${prefix}listmsg`
 	        let msgs = global.db.database
 	        if (!(text.toLowerCase() in msgs)) return reply(`'${text}' not listed in the message list`)
@@ -5293,7 +5293,7 @@ case '12345nuklir': {
 		reply(`Successfully deleted '${text}' from the message list`)
             }
 	    break
-	    case '12345anonymous': {
+	    case 'anonymous': {
                 if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
 				this.anonymous = this.anonymous ? this.anonymous : {}
 				let buttons = [{
@@ -5310,7 +5310,7 @@ case '12345nuklir': {
                 Pajrin.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await Pajrin.getName(m.sender)} Welcome To Anonymous Chat\n\nClick The Button Below To Find A Partner\`\`\``,  `${global.fake}`, m)
             }
 			break
-case '12345sendkontak': case '12345sendcontact': {
+case 'sendkontak': case 'sendcontact': {
                 if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 let room = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -5327,7 +5327,7 @@ case '12345sendkontak': case '12345sendcontact': {
                 Pajrin.sendContact(room.a, [room.b.split("@")[0]], msg)
             }
             break
-            case '12345stop': case '12345keluar': case '12345leave': {
+            case 'stop': case 'keluar': case 'leave': {
                 if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 let room = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -5344,7 +5344,7 @@ case '12345sendkontak': case '12345sendcontact': {
                 delete this.anonymous[room.id]
                 if (command === 'leave') break
             }
-            case '12345mulai': case '12345start': {
+            case 'mulai': case 'start': {
                 if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 if (Object.values(this.anonymous).find(room => room.check(m.sender))) {
@@ -5385,7 +5385,7 @@ case '12345sendkontak': case '12345sendcontact': {
                 }
                 break
             }
-            case '12345skip':  case '12345next': case '12345lanjut': {
+            case 'skip':  case 'next': case 'lanjut': {
                 if (m.isGroup) return reply('This Feature Cannot Be Used In Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 let romeo = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -5430,19 +5430,19 @@ case '12345sendkontak': case '12345sendcontact': {
                 }
                 break
             }
-            case '12345public': {
+            case 'public': {
                 if (!isCreator) throw mess.owner
                 Pajrin.public = true
                 reply('Successfully Changed To Public Usage')
             }
             break
-            case '12345self': {
+            case 'self': {
                 if (!isCreator) throw mess.owner
                 Pajrin.public = false
                 reply('Successfully Changed To Self Usage')
             }
             break
-            case '12345ping': case '12345botstatus': case '12345statusbot': {
+            case 'ping': case 'botstatus': case 'statusbot': {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
                     cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
@@ -5489,13 +5489,13 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 reply(respon)
             }
             break
-            case '12345owner': case '12345creator': {
+            case 'owner': case 'creator': {
             Pajrin.sendContact(m.chat, global.pemilik, m)
            const devsound = fs.readFileSync('./BotMedia/botdev.mp3') //u can change the music in BotMedia folder
            Pajrin.sendMessage(m.chat, { audio: devsound, mimetype: 'audio/mp4', ptt: true, quoted: m })
             }
             break
-                    case '12345bug': case '12345report': {
+                    case 'bug': case 'report': {
                     	if(!text) throw `Enter The Bug Example\n\n${prefix + command} Menu Error `
                     	Pajrin.sendMessage(`${global.pemilik}@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
 Report Message: ${text}` })
@@ -5503,7 +5503,7 @@ reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, 
                     }
                     break 
                     
-case '12345tes': case '12345test': case '12345alive': case '12345bot': case '12345robot': case '12345cheems': case '12345doge':{
+case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'cheems': case 'doge':{
                           timestampe = speed();
 latensie = speed() - timestampe
   	anu = ` Hi 🤚 ${pushname}
@@ -5550,7 +5550,7 @@ ${global.botnma} in here
 break
 
 
-            case '12345list': case '12345menu': case '12345help': case '12345?': {
+            case 'list': case 'menu': case 'help': case '?': {
           timestampe = speed();
 latensie = speed() - timestampe
   	anu = ` Hi 🤚 ${pushname}
@@ -5609,7 +5609,7 @@ How Are You? 😊
 break
 
             
-case '12345command': case '12345listmenu': case '12345menulist':{
+case 'command': case 'listmenu': case 'menulist':{
 	const tanggal = moment.tz('Asia/Jakarta').format('dddd') + ', ' + moment.tz('Asia/Jakarta').format('LL')
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
@@ -5865,7 +5865,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-            case '12345allmenu': case '12345menuall': case '12345semuamenu': case '12345allfitur': case '12345fiturall': case '12345semuafitur': {
+            case 'allmenu': case 'menuall': case 'semuamenu': case 'allfitur': case 'fiturall': case 'semuafitur': {
             	reply(`━━━━━ 𝗔𝗟𝗟 𝗠𝗘𝗡𝗨 ━━━━━
 
 *✧ Owner Menu ✧*
@@ -6722,7 +6722,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             }
 
             break
-            case '12345admingroupmenu':  {
+            case 'admingroupmenu':  {
             	dia = m.sender
   	anu = `*✧ Admin Group Menu ✧*
   
@@ -6761,7 +6761,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
           break
-                      case '12345groupmenu':  {
+                      case 'groupmenu':  {
   	anu = `*✧ Group Menu ✧*
   
   ➙ ${prefix}hidetag [teks]
@@ -6800,7 +6800,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
            break
-          case '12345animemenu':  {
+          case 'animemenu':  {
   	anu = `*✧ Anime Manga  Menu ✧*
   
   ➙ ${prefix}animesearch [query]
@@ -6834,7 +6834,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345convertmenu':  {
+          case 'convertmenu':  {
   	anu = `*✧ Convert Menu ✧*
   
   ➙ ${prefix}sticker _Reply image/video_
@@ -6880,7 +6880,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345creatormakermenu':  {
+          case 'creatormakermenu':  {
   	anu = `*✧ Creator Maker Menu ✧*
   
   
@@ -6923,7 +6923,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345databasemenu':  {
+          case 'databasemenu':  {
   	anu = `*✧ Database & Chat Menu ✧*
   
   ➙ ${prefix}delete _Reply message bot_
@@ -6964,7 +6964,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345downloadmenu':  {
+          case 'downloadmenu':  {
   	anu = `*✧ Downloader Menu ✧*
   
   ➙ ${prefix}play [query]
@@ -7010,7 +7010,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345gamechecker':  {
+          case 'gamechecker':  {
   	anu = `*✧ Game Checker ✧*
   
   ➙ ${prefix}ffcek [PlayerID]
@@ -7042,7 +7042,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345gamemenu':  {
+          case 'gamemenu':  {
   	anu = `*✧ Game Menu ✧*
   
   ➙ ${prefix}math
@@ -7077,7 +7077,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345infomenu':  {
+          case 'infomenu':  {
   	anu = `*✧ Informasi Menu ✧*
   
   ➙ ${prefix}wikipedia [query]
@@ -7117,7 +7117,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345islammenu':  {
+          case 'islammenu':  {
   	anu = `*✧ Islami Menu ✧*
   
   ➙ ${prefix}listsurah
@@ -7156,7 +7156,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345mememenu':  {
+          case 'mememenu':  {
   	anu = `*✧ Meme Menu ✧*
   
   ➙ ${prefix}darkjoke
@@ -7187,7 +7187,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345mememakermenu':  {
+          case 'mememakermenu':  {
   	anu = `*✧ Meme Maker Menu ✧*
   
   ➙ ${prefix}meme1 [teks]
@@ -7228,7 +7228,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345beritamenu':  {
+          case 'beritamenu':  {
   	anu = `*✧ News Berita Menu ✧*
   
   ➙ ${prefix}hoax
@@ -7270,7 +7270,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345photoeditormenu':  {
+          case 'photoeditormenu':  {
   	anu = `*✧ Photo Editor ✧*
   
   ➙ ${prefix}wasted _Reply Foto_ 
@@ -7347,7 +7347,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345primbonmenu':  {
+          case 'primbonmenu':  {
   	anu = `*✧ Primbon Menu ✧*
   
   ➙ ${prefix}nomerhoki [nomor]
@@ -7404,7 +7404,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345quotesmenu':  {
+          case 'quotesmenu':  {
   	anu = `*✧ Quotes Menu ✧*
   
   ➙ ${prefix}quotes
@@ -7438,7 +7438,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345quotesmakermenu':  {
+          case 'quotesmakermenu':  {
   	anu = `*✧ Quotes Maker Menu ✧*
   
   ➙ ${prefix}qmaker [quotes]
@@ -7469,7 +7469,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345randomimage':  {
+          case 'randomimage':  {
   	anu = `*✧ Random Image ✧*
   
   ➙ ${prefix}rblackpink
@@ -7547,7 +7547,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345randomteks':  {
+          case 'randomteks':  {
   	anu = `*✧ Random Teks ✧*
   
   ➙ ${prefix}faktaunik
@@ -7586,7 +7586,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345searchmenu':  {
+          case 'searchmenu':  {
   	anu = `*✧ Search Menu ✧*
   
   ➙ ${prefix}groupwa [query]
@@ -7633,7 +7633,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345sekolahmenu':  {
+          case 'sekolahmenu':  {
   	anu = `*✧ Sekolah Menu ✧*
   
   ➙ ${prefix}nulis [teks]
@@ -7668,7 +7668,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345sertifikatmenu':  {
+          case 'sertifikatmenu':  {
   	anu = `*✧ Sertifikat Menu ✧*
   
   ➙ ${prefix}ytsilver [nama]
@@ -7707,7 +7707,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345stalkmenu':  {
+          case 'stalkmenu':  {
   	anu = `*✧ Stalk Menu ✧*
   
   ➙ ${prefix}igstalk [username]
@@ -7741,7 +7741,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345stickermenu':  {
+          case 'stickermenu':  {
   	anu = `*✧ Sticker Menu ✧*
   
   ➙ ${prefix}harta [teks]
@@ -7789,7 +7789,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345teksmaker':  {
+          case 'teksmaker':  {
   	anu = `*✧ Teks Maker ✧*
   
      Top Maker
@@ -7915,7 +7915,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345toolsmenu':  {
+          case 'toolsmenu':  {
   	anu = `*✧ Tools & Internet Menu ✧*
   
   ➙ ${prefix}tts [teks]
@@ -7965,7 +7965,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345voicechanger':  {
+          case 'voicechanger':  {
   	anu = `*✧ Voice Changer Menu ✧*
   
 _Reply Audio_
@@ -8005,7 +8005,7 @@ _Reply Audio_
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345anonymouschatmenu':  {
+          case 'anonymouschatmenu':  {
   	anu = `*✧ Anonymous Chat Menu ✧*
   
   ➙ ${prefix}start ( Start Chat )
@@ -8036,7 +8036,7 @@ _Reply Audio_
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345emailmenu':  {
+          case 'emailmenu':  {
   	anu = `*✧ Email Sementara ✧*
   
   ➙ ${prefix}getemail
@@ -8067,7 +8067,7 @@ _Reply Audio_
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-          case '12345ownermenu':  {
+          case 'ownermenu':  {
   	anu = `*✧ Owner Menu ✧*
   
   ➙ ${prefix}self 
@@ -8109,19 +8109,19 @@ _Reply Audio_
                 Pajrin.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-           case '12345aboutbot': {
+           case 'aboutbot': {
            Pajrin.sendMessage(m.chat, { image:global.botlogo , caption: global.aboutbot }, { quoted: m })
            }
            break
-           case '12345aboutdev': {
+           case 'aboutdev': {
            Pajrin.sendMessage(m.chat, { image:global.logodev , caption: global.aboutdev }, { quoted: m })
            }
            break
-           case '12345tosbot': {
+           case 'tosbot': {
            	m.reply(global.tosbot)
            }
            break
-          case '12345how': {
+          case 'how': {
           	m.reply(`〔 𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗣𝗲𝗻𝗴𝗴𝘂𝗻𝗮𝗮𝗻 𝗖𝗼𝗺𝗺𝗮𝗻𝗱/𝗣𝗲𝗿𝗶𝗻𝘁𝗮𝗵 𝗨𝗻𝘁𝘂𝗸 𝗕𝗢𝗧〕
 
    *き⃟🔍 [teks]*
@@ -8166,7 +8166,7 @@ NANTI BAKAL MUNCUL CARA PENGGUNAANNYA DAN CONTOH PENGGUNAANNYA  `)
 
 
 
-case '12345okvirtex': {
+case 'okvirtex': {
 	if (!isCreator) return reply(mess.owner)
             	anu = `${global.virtex}\n${global.virtex}`
   let message = await prepareWAMessageMedia({ video: fs.readFileSync('./BotMedia/menu.mp4'), gifPlayback: true }, { upload: Pajrin.waUploadToServer })
@@ -8216,7 +8216,7 @@ case '12345okvirtex': {
   
 break
 
-case '12345spamvirtex': {
+case 'spamvirtex': {
 	if (!isCreator) return reply(mess.owner)
 	if (!text) throw `*Masukan nomor yg mau di spam virtex !*\n\n_Contoh:_ ${prefix + command} 628xxxxxxxxx`
 	let buttons = [
@@ -8233,7 +8233,7 @@ case '12345spamvirtex': {
 }
 
 break
-case '12345spamvirtex2': {
+case 'spamvirtex2': {
 tas = arg.split('+')[0]
               wah = arg.split('+')[1]
 	if (!isCreator) return reply(mess.owner)
@@ -8338,7 +8338,7 @@ let message = await prepareWAMessageMedia({ video: fs.readFileSync('./BotMedia/m
 
 
 
-case '12345404menu': {
+case '404menu': {
             	anu = ` 
             
   `
@@ -8367,7 +8367,7 @@ case '12345404menu': {
             }
 break
 
-case '12345energycontribution': case '12345tqtt': case '12345tqto': case '12345thanksto': case '12345thankto': 
+case 'energycontribution': case 'tqtt': case 'tqto': case 'thanksto': case 'thankto': 
 m.reply(global.tqto)
 break
 
