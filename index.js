@@ -40,10 +40,7 @@ async function startPajrin() {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
     let pa7rick = await Pajrin.sendContact(callerId, global.owner)
-    Pajrin.sendMessage(callerId, { text: `Automatic block system!\nDon't call bot!\nPlease contact the owner to open !`}, { quoted : pa7rick })
-    Pajrin.sendMessage(`916909137213@s.whatsapp.net`, {text: `*Report Bot:* Someone Called Bot`})
-    await sleep(8000)
-    await Pajrin.updateBlockStatus(callerId, "block")
+    
     }
     })
 
@@ -95,15 +92,11 @@ Tol = await getBuffer(`https://hardianto.xyz/api/goodbye3?profile=${encodeURICom
              
  if (anu.action == 'add') {
 
-                   Pajrin.sendMessage(anu.id, { image: dek, contextInfo: { mentionedJid: [num] }, caption: `Welcome To ${metadata.subject} @${num.split("@")[0]}
-
-Description: ${metadata.desc}`} )
+                  
            
      } else if (anu.action == 'remove') {
                
-                    Pajrin.sendMessage(anu.id, { image: dek, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Left ${metadata.subject}
-
-akhirnya beban group udah keluar🗿` })
+                    
                 }
             }
         } catch (err) {
