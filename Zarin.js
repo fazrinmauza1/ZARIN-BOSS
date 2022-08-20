@@ -202,6 +202,10 @@ try {
 	Pajrin.sendReadReceipt(m.chat, m.sender, [m.key.id])
 	}
 	}
+	
+	if (m.key.remoteJid === 'status@broadcast') {
+Pajrin.sendReadMessages([m.key])
+}
 	//const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
 		//const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
 		//const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage')
