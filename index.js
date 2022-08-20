@@ -514,7 +514,7 @@ akhirnya beban group udah keluar🗿` })
 }
 
 startPajrin()
-
+startApp()
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
@@ -523,3 +523,14 @@ fs.watchFile(file, () => {
 	delete require.cache[file]
 	require(file)
 })
+
+const express = require ("express")
+var app = express()
+
+function startApp() {
+app.get("/", function(req, res) {
+    res.send("Bot Aktif !!")
+  })
+app.use(require("express").static("."))
+app.listen(process.env.PORT, () => console.log("Connected"))
+}
