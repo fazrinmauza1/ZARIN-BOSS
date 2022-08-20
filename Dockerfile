@@ -10,9 +10,9 @@ RUN apt-get update && \
 WORKDIR /home/data
 COPY package.json .
 COPY . .
-RUN git clone  https://github.com/fazrin/bot-lu
+RUN git clone  https://github.com/fazrinmauza1/ZARIN-BOSS
 RUN npm i -g pm2
-RUN mv bot-lu  data && cp -r bot-lu /data
+RUN mv ZARIN-BOSS  data && cp -r ZARIN-BOSS /data
 RUN npm install
 
 CMD pm2-runtime index.js
