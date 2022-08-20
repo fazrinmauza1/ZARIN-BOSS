@@ -30,7 +30,7 @@ global.fake = 'Fazrin Gamteng' //FAKE fotter
 global.ownernma = 'Fazrin' //owner name
 global.packname = 'Zarin BOT' //sticker package name
 global.author = 'By Fazrin Mauza' //sticker author name
-global.autoread = 'on' //ganti 'on' untuk mengaktifkan auto tead, ganti 'off' untuk mematikan auto read
+global.autoread = 'offff' //ganti 'on' untuk mengaktifkan auto tead, ganti 'off' untuk mematikan auto read
 
 //═══════[media sosial]════════\\
 global.groupwa = 'https://chat.whatsapp.com/hak' //group WhatsApp nya
