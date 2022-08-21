@@ -52,6 +52,7 @@
     "scrape-primbon": "^1.1.0",
     "util": "^0.12.4",
     "yargs": "^17.2.1",
+    "express": "*",
     "yt-search": "^2.10.2"
   },
   "directories": {
@@ -61,10 +62,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fazrinmauza1/ZARIN-BOSS"
+    "url": "git+https://github.com/DGXeon/CheemsBot-MD.git"
   },
   "bugs": {
-    "url": "https://github.com/fazrinmauza1/ZARIN-BOSS/issues"
+    "url": "https://github.com/DGXeon/CheemsBot-MD/issues"
   },
-  "homepage": "https://github.com/fazrinmauza1/ZARIN-BOSS#readme"
+  "homepage": "https://github.com/DGXeon/CheemsBot-MD#readme"
 }
