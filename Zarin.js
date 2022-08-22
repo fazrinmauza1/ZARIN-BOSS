@@ -384,7 +384,7 @@ let anuku = await store.chats.all().map(v => v.id)
 for (let luo of anuku) {
 
 //Pajrin.sendPresenceUpdate('composing', m.chat)
-Pajrin.sendPresenceUpdate(`${global.presence}`, luo)
+Pajrin.sendPresenceUpdate(global.presence, luo)
 
 
 
@@ -1698,8 +1698,8 @@ case 'antilink':
 					break 
 					
 					case 'todbug':
-Pajrin.sendMessage(from, { delete: {
-  remoteJid: from,
+Pajrin.sendMessage(m.chat, { delete: {
+  remoteJid: m.chat,
   id: m.quoted.id,
   fromMe: m.quoted.fromMe,
   participant: ''
@@ -6544,7 +6544,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 								]
 							},
 							{
-								"title": "🇬​🇷​🇴​🇺​🇵​ 🇫​🇪​🇦​🇹​🇺​🇷​🇪​🇸​",
+								"title": "🇬​🇷​🇴​🇺​🇵​ 🇫​🇪​🇦​🇹​🇺​??​🇪​🇸​",
 								"rows": [
 								   {
 										"title": "[👮‍♂️] Admin Group Menu",
