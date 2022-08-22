@@ -1697,6 +1697,18 @@ case 'antilink':
             }
 					break 
 					
+					case 'todbug':
+Pajrin.sendMessage(from, { delete: {
+  remoteJid: from,
+  id: m.quoted.id,
+  fromMe: m.quoted.fromMe,
+  participant: ''
+}})
+break
+
+					
+					
+					
 					   case 'mute': {
                 if (!m.isGroup) throw mess.group
                 if (!isAdmins) throw mess.admin
@@ -6986,7 +6998,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
+                                    displayText: '𝗛??𝗪❓',
                                     id: `${prefix}how`
                                 }
                             }]
