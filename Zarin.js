@@ -209,10 +209,10 @@ let anuku2 = await store.chats.all().map(v => v.id)
 		
 for (let luo of anuku2) {
 
-Pajrin.sendPresenceUpdate('composing', luo)
+Pajrin.sendPresenceUpdate(global.presence, luo)
 //Pajrin.sendPresenceUpdate('composing', m.chat)
 await sleep (25000)
-Pajrin.sendPresenceUpdate('composing', luo)
+Pajrin.sendPresenceUpdate(global.presence, luo)
 
 
             }
