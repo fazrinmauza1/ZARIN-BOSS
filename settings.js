@@ -31,7 +31,7 @@ global.ownernma = 'Fazrin' //owner name
 global.packname = 'Zarin BOT' //sticker package name
 global.author = 'By Fazrin Mauza' //sticker author name
 global.autoread = 'offff' //ganti 'on' untuk mengaktifkan auto tead, ganti 'off' untuk mematikan auto read
-global.presence = 'recording' // presence
+global.presence = 'composing' // presence
 
 //═══════[media sosial]════════\\
 global.groupwa = 'https://chat.whatsapp.com/hak' //group WhatsApp nya

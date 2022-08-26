@@ -207,15 +207,13 @@ let anuku2 = await store.chats.all().map(v => v.id)
 		Pajrin.sendReadReceipt(m.chat, m.sender, [m.key.id])
 		
 		
-for (let luo of anuku2) {
-
-Pajrin.sendPresenceUpdate(global.presence, luo)
-//Pajrin.sendPresenceUpdate('composing', m.chat)
-await sleep (25000)
-Pajrin.sendPresenceUpdate(global.presence, luo)
+// for (let luo of anuku2) {
 
 
-            }
+//Pajrin.sendPresenceUpdate(global.presence, luo)
+
+
+     //       }
 
 
 }
@@ -386,9 +384,10 @@ for (let luo of anuku) {
 //Pajrin.sendPresenceUpdate('composing', m.chat)
 Pajrin.sendPresenceUpdate(global.presence, luo)
 
-
-
             }
+            
+            
+      
 	
 
 //[reset limit every 12hrs]\\
@@ -5663,7 +5662,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                     footerText: `_${global.botnma}_\n${tanggal}`,
                     listType: "SINGLE_SELECT",
                     sections: [{
-								"title": "🤖🇧​🇴​🇹​ 🇮​🇳​🇫​🇴​🇷​🇲​🇦​🇹​🇮​🇴​🇳​🤖",
+								"title": "🤖🇧​🇴​🇹​ 🇮​??​🇫​🇴​🇷​🇲​🇦​🇹​🇮​🇴​🇳​🤖",
 								"rows": [
 								   {
 										"title": "ABOUT THIS BOT",
