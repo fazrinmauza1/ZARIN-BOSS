@@ -1757,6 +1757,29 @@ break
             
             break
 
+case 'autpgc':
+let getGroups = await Pajrin.groupFetchAllParticipating()
+                let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
+                let anu = groups.map(v => v.id)
+ setInterval(() => {
+            
+
+
+
+for (let luo of anu) {
+
+Pajrin.sendPresenceUpdate(global.presence, luo)
+
+            }
+            
+                    }, 25000)
+
+break
+
+
+
+
+
             case 'bcgc': case 'bcgroup': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw `*Mana teks nya?*\n\_Contoh:_ ${prefix + command} Hello guys im WhatsApp bot in here`
