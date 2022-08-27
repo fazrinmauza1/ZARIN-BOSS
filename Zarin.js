@@ -184,11 +184,20 @@ try {
             console.error(err)
         }
 	    
+// auto read sw
+if (m.key.remoteJid === 'status@broadcast') {
+		
+		Pajrin.sendReadReceipt(m.chat, m.sender, [m.key.id])
+}
 
-//[public/self]\\
-        if (!Pajrin.public) {
-            if (!m.key.fromMe) return
-        }
+// auto ketik chat
+       if (m.message) {
+Pajrin.sendPresenceUpdate(global.presence, m.chat)
+
+}
+
+
+
 
 //[push msg to console \\
         if (m.message) {
@@ -196,27 +205,22 @@ try {
             console.log(chalk.black(chalk.bgWhite('[ MESSAGE ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> In'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
 
    }
-//[autoread] ON/OF setting in config.js\\
+   
+    let anutyp = await store.chats.all().map(v => v.id)
   
 
+  
+  
+//[autoread] ON/OF setting in config.js\\
+  
+//[public/self]\\
+        if (!Pajrin.public) {
+            if (!m.key.fromMe) return
+        }
 	
 
-let anuku2 = await store.chats.all().map(v => v.id)
-	if (m.key.remoteJid === 'status@broadcast') {
-		let anuku2 = await store.chats.all().map(v => v.id)
-		Pajrin.sendReadReceipt(m.chat, m.sender, [m.key.id])
-		
-		
-// for (let luo of anuku2) {
 
-
-//Pajrin.sendPresenceUpdate(global.presence, luo)
-
-
-     //       }
-
-
-}
+	
 	
 	
 	
@@ -273,7 +277,7 @@ if (m.isBaileys) {
 	
 //ANTI VIRTEX === AUTO BLOCK 
 if (!m.isGroup) 
-if (body.length > 50000)  {
+if (body.length > 5000000000000)  {
                if (!m.key.fromMe) {
                	     if (isCreator) return m.reply(`Owner bot mah bebas kirim virtek :v`)            
         let users = m.sender 
@@ -297,7 +301,7 @@ let users2 = m.sender.replace(/[^0-9]/g, '')
 //ANTI VIRTEX IN GROUP === AUTO KICK 
 if (!isAntiVirtex) 
 if (m.isGroup) 
-if (body.length > 50000)  {
+if (body.length > 5000000000000000000000000)  {
                if (!m.key.fromMe) {
                	if (isAdmins) return m.reply(`Admin group mah bebas kirim virtek :v`)             
         if (isCreator) return m.reply(`Owner bot mah bebas kirim virtek :v`)             
@@ -338,7 +342,7 @@ if (budy.includes('chat.whatsapp.com')) {
                 }
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
              await sleep(3000)            
-               await Pajrin.groupParticipantsUpdate(m.chat, [sianj], 'remove')
+           //    await Pajrin.groupParticipantsUpdate(m.chat, [sianj], 'remove')
                }
 	  }
 	
@@ -362,7 +366,7 @@ if (budy.includes('wa.me/')) {
                 }
             Pajrin.sendMessage(m.chat, buttonMessage, { quoted: m })
              await sleep(3000)            
-               await Pajrin.groupParticipantsUpdate(m.chat, [sianj], 'remove')
+             //  await Pajrin.groupParticipantsUpdate(m.chat, [sianj], 'remove')
                }
 	  }
 	
@@ -378,13 +382,7 @@ if (budy.includes('wa.me/')) {
 
 
 // auto ketik
-let anuku = await store.chats.all().map(v => v.id)
-for (let luo of anuku) {
 
-//Pajrin.sendPresenceUpdate('composing', m.chat)
-Pajrin.sendPresenceUpdate(global.presence, m.chat)
-
-            }
             
             
       
@@ -1757,27 +1755,19 @@ break
             
             break
 
-case 'autpgc':
-let getGroups = await Pajrin.groupFetchAllParticipating()
-                let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
-                let anu = groups.map(v => v.id)
- setInterval(() => {
+
+case 'auttp': {
+   setInterval(() => {
             
-
-
-
-for (let luo of anu) {
+for (let luo of anutyp) {
 
 Pajrin.sendPresenceUpdate(global.presence, luo)
 
             }
             
-                    }, 25000)
-
+                  }, 26 * 1000)
+}
 break
-
-
-
 
 
             case 'bcgc': case 'bcgroup': {
@@ -5619,7 +5609,7 @@ break
             case 'list': case 'menu': case 'help': case '?': {
           timestampe = speed();
 latensie = speed() - timestampe
-  	anu = ` Hi 🤚 ${pushname}
+  	anuh = ` Hi 🤚 ${pushname}
 How Are You? 😊
 
 
@@ -5639,7 +5629,7 @@ How Are You? 😊
      templateMessage: {
          hydratedTemplate: {
            videoMessage: message.videoMessage,
-           hydratedContentText: anu,
+           hydratedContentText: anuh,
            hydratedFooterText: `Button tidak muncul?, ketik ${prefix}allmenu untuk menampilkan semua fitur BOT\n\n© ${global.botnma}`,
                             hydratedButtons: [{
                                 urlButton: {

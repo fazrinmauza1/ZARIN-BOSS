@@ -51,7 +51,7 @@ async function startPajrin() {
         if (!mek.message) return
         mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
      // if (mek.key && mek.key.remoteJid === 'status@broadcast') return
-        if (!Pajrin.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
+  //      if (!Pajrin.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
         if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
         m = smsg(Pajrin, mek, store)
         require("./Zarin")(Pajrin, m, chatUpdate, store)
@@ -166,7 +166,7 @@ Tol = await getBuffer(`https://hardianto.xyz/api/goodbye3?profile=${encodeURICom
         return status
     }
 	
-    Pajrin.public = true
+    Pajrin.public = false
 
     Pajrin.serializeM = (m) => smsg(Pajrin, m, store)
 
@@ -516,3 +516,4 @@ fs.watchFile(file, () => {
 	delete require.cache[file]
 	require(file)
 })
+
